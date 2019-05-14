@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,星星打分，打分插件jq">
+    <meta name="description" content=" 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 星星打分插件简易版</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>星星打分插件简易版</h4>
+            <p>最近很怠惰呢，冬天是一个让人不想动弹的季节，我也懒得不想写简介了。
+                总而言之言而总之就是字面上的意思，做评论的时候需要用到的星星打分。
+                如果需要给后台返值的话，返回 <span class="cspan">$(".star_score span.select").size()</span>的值即可。</p>
+            <div class="star_score"></div>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    <div class="star_score"></div>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    .star_score span{
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background: url(../img/star-off.png) no-repeat;
+                        background-size: 100%;
+                        cursor: pointer;
+                    }
+                    .star_score span.active, .star_score span.select{
+                        background: url(../img/star-on.png) no-repeat;
+                        background-size: 100%;
+                    }
+
+                </pre>
+            </div>
+            <h5>Js:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    $(function(){
+                        var className= $(".star_score");
+                        //生成5个星星
+                        for(var i=0;i<5;i++){
+                            var _html = '<span title="'+parseInt(i+1)+'分"></span>';
+                            className.append(_html);
+                        }
+                        //鼠标滑过，星星背景图片改成选中图片
+                        $(".star_score span").hover(function(){
+                            var index = $(this).index();
+                            for(var i = 0; i <=index; i++){
+                                $(this).parent().find("span").eq(i).addClass("active");
+                            }
+                        //鼠标移除去掉激活效果
+                        },function(){
+                            $(this).parent().find("span").removeClass("active");
+                        });
+                        //星星点击，这颗星星之前的所有星星加上选中效果
+                        $(".star_score span").click(function(){
+                            $(this).parent().find("span").removeClass("select");
+                            var index = $(this).index();
+                            for(var i = 0; i <=index; i++){
+                                $(this).parent().find("span").eq(i).addClass("select");
+                            }
+                        });
+                    });
+                </pre>
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.10.14</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+
+    $(function(){
+        var className= $(".star_score");
+        for(var i=0;i<5;i++){
+            var _html = '<span title="'+parseInt(i+1)+'分"></span>';
+            className.append(_html);
+        }
+
+        $(".star_score span").hover(function(){
+
+            var index = $(this).index();
+            for(var i = 0; i <=index; i++){
+                $(this).parent().find("span").eq(i).addClass("active");
+            }
+        },function(){
+            $(this).parent().find("span").removeClass("active");
+        });
+        $(".star_score span").click(function(){
+            $(this).parent().find("span").removeClass("select");
+            var index = $(this).index();
+            for(var i = 0; i <=index; i++){
+                $(this).parent().find("span").eq(i).addClass("select");
+            }
+        });
+
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

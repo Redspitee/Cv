@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="web前端,web前端简历,张小月，Redspite，个人博客，购物车js">
+    <meta name="description" content="WEB前端工程师张小月的个人简历">
+    <meta name="author" content="张小月,Redspite">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body style="min-width: 770px!important;">
+
+<div class="mb-content">
+
+    <div class="content" style="background: #fff;">
+        <div class="container">
+            <p class="nav-guide">
+                <a href="index.html">首页</a>
+                &gt;
+                <span>我的购物车</span>
+            </p>
+            <!-- 购物车区域 -->
+            <div class="car-box">
+                <div class="car-title">
+                    <div>
+                    </div>
+                    <div>
+                        <span class="half">商品</span>
+                        <span class="half">规格</span>
+                    </div>
+                    <div>单价</div>
+                    <div>数量</div>
+                    <div>金额</div>
+                    <div>操作</div>
+                </div>
+                <!-- 商品列表 -->
+                <div class="item-list">
+                    <!-- 单个商品 购物车详情 -->
+                    <div class="item-single">
+                        <div class="check-box">
+                            <input type="checkbox" name="checkIterm" class="check-item">
+                            <div class="car-img">
+                                <img src="image/05.jpg" alt="商品图片">
+                            </div>
+                        </div>
+                        <div class="car-goods-msg">
+                            <div>
+                                <h4>超级好用奔爱透明情侣杯</h4>
+                            </div>
+                            <div>
+                                <p>图案选择：海豚蓝色</p>
+                                <p>形状尺寸：迷你胖肚</p>
+                            </div>
+                        </div>
+                        <div style="font-weight: bold;">￥<span class="price">52.50</span></div>
+                        <div>
+                            <div class=" numbers">
+                                <span class="cut cgnum">-</span>
+                                <span class="goods-num">1</span>
+                                <span class="add cgnum">+</span>
+                            </div>
+                        </div>
+                        <div class="total-div">
+                            ￥<span class="total-money">52.50</span>
+                        </div>
+                        <div class="handle">
+                            <p class="item-del">删除</p>
+                            <p>移到我的收藏</p>
+                        </div>
+                    </div>
+
+
+                    <!-- 单个商品 购物车详情 -->
+                    <div class="item-single">
+                        <div class="check-box">
+                            <input type="checkbox" name="checkIterm" class="check-item">
+                            <div class="car-img">
+                                <img src="image/06.jpg" alt="商品图片">
+                            </div>
+                        </div>
+                        <div class="car-goods-msg">
+                            <div>
+                                <h4>超级好用奔爱透明情侣杯</h4>
+                            </div>
+                            <div>
+                                <p>图案选择：海豚蓝色</p>
+                                <p>形状尺寸：迷你胖肚</p>
+                            </div>
+                        </div>
+                        <div style="font-weight: bold;">￥<span class="price">54.50</span></div>
+                        <div>
+                            <div class=" numbers">
+                                <span class="cut cgnum">-</span>
+                                <span class="goods-num">1</span>
+                                <span class="add cgnum">+</span>
+                            </div>
+                        </div>
+                        <div class="total-div">
+                            ￥<span class="total-money">54.50</span>
+                        </div>
+                        <div class="handle">
+                            <p class="item-del">删除</p>
+                            <p>移到我的收藏</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-toolbar ">
+                <div class="to-add-container ">
+                    <div class="fl" style="margin-left:0;">
+                        <input type="checkbox" name="checkItem" class="check-all">全选
+                    </div>
+                    <div class="fl del-all">删除选中</div>
+                    <div class="fl col-all">移入收藏夹</div>
+                    <div class="fl cle-timeout">清除下架宝贝</div>
+                    <div class="fr settle">
+                        <a>结算</a>
+                    </div>
+                    <div class="fr total-price">
+                        合计： <span id="total-price">￥0.00</span>
+                    </div>
+                    <div class="fr">
+                        已选择商品 <strong id="num-all"> 0 </strong> 件
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

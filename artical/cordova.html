@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,cordova开发app,cordova h5,h5 app开发,js开发app">
+    <meta name="description" content="RedSpite 神奇的Cordova -- 利用H5进行APP开发 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite »神奇的Cordova -- 利用H5进行APP开发 文章详情</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>神奇的Cordova -- 利用H5进行APP开发</h4>
+            <p>一直以来app的开发都分为android版本和ios版本,同一款app需要写两种版本，版本有差异不说，耗费的成本加成。
+                cordova的出现就是一股清流，它能实现将h5页面打包成android或ios版本，实现了android、ios、pc端页面的统一。
+                内容都用h5书写，差异性和成本都下降了。它所支持的各种开源插件也能轻松实现对手机众多接口的调用，功能性上没有问题。
+            </p>
+            <p>操作需要掌握一定NodeJs</p>
+            <p>Cordova的安装：</p>
+            <p><strong>1. </strong>下载jdk，安装JAVA环境，配置系统环境。网上都有教程</p>
+            <p><strong>2. </strong>打开cmd命令行，运行<span class="cspan">npm install -g cordova</span>，全局安装cordova。</p>
+            <p><strong>3. </strong>测试是否安装好了cordova，继续在命令行里输入<span class="cspan">cordova -v</span>,检查cordova版本号，如果有版本信息则说明已成功安装cordova。</p>
+            <p><strong>4. </strong>新建cordova项目 <span class="cspan">cordova create folderName</span></p>
+            <p><strong>5. </strong>进入新建cordova项目的文件夹 <span class="cspan">cd folderName</span></p>
+            <p><strong>6. </strong>新建android项目<span class="cspan">cordova platform add android</span></p>
+            <p><strong>7. </strong>新建ios项目<span class="cspan">cordova platform add ios</span></p>
+            <p><strong>8. </strong>folderName目录下有一个www文件夹，里面放自己项目里的html、js、css、image文件。将代码包成apk文件<span class="cspan">cordova build</span>
+            <p><strong>9. </strong>数据线将手机连接至电脑，手机打开USB调试模式。输入命令<span class="cspan">cordova run android --service</span>可在手机上安装安卓程序包，进行项目预览和调试。</p>
+            
+            <p>cordova的功能不止于此，官网有更详细的介绍，打开<a href="http://cordova.apache.org">cordova官网</a>。官网附有调用手机功能或其他功能的插件。github上搜索cordova + 关键字也可以找到很多很有用的插件。继续保持学习吧。</p>
+        </div>
+        <p class="artical-detail-date">2017.02.22</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+    
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

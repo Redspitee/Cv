@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,富文本输入框,编辑器手写,div可编辑,表情输入框,javascript,css">
+    <meta name="description" content="RedSpite 带表情包的富文本输入框手写插件,可插入图片、可获取代码。">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 带表情包的富文本输入框手写插件</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="bjq/bjq.css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>带表情包的富文本输入框手写插件</h4>
+            <p>说到文本输入，我们常用的有 textarea 还有input[type="text"]，这两位能完成基本的文本输入。
+                可是当我们希望评论区域趣味一点，追求更高一点的时候捏，这两位就都得靠边站了，为啥？
+                因为都不支持图片输入啊~ 如果往里面插入图片，他两是没有反应的。</p>
+            <p>当然，稍微了解的都知道div的 <strong> contenteditable = true</strong>，即是可以让div变身成可输入文本框的神奇属性。
+                而且！！最重要的是<strong>可以插入图片啦！</strong>咋们终于能在评论区域来一次表情包大战了~
+            </p>
+            <h5>先来个预览：</h5>
+            <div id="mybjq"></div>
+            <p> <button id="alert">点击获取输入框内的html</button></p>
+            <p>这不就是我们要的吗？  赶紧撸起袖子，大干一场。</p>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    <div contenteditable = true></div>
+                </pre>
+            </div>
+            <p>这就已经完成一大半啦！哈哈 就是这么简单</p>
+            <p>接下来就是表情包的事了，表情包原理其实很简单。</p>
+            <p><strong>1.</strong> 首先是要准备一个所有表情截图spirits,尽量做成一个竖着的排版，这样截取表情方便一些。如下</p>
+            <p><img src="image/bjq-ct.png" alt="表情spirts"></p>
+            <p><strong>2. </strong>每一个截图区域取固定大小，背景图就是这块spirits,通过调节background-position，对应每个不同的表情。</p>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    td{
+                        width: 45px;
+                        height: 35px;
+                        padding: 0 5px;
+                        cursor: pointer;
+                        background: url(bjq-ct.png)  no-repeat scroll left top;
+                    }
+                    td:nth-child(1){
+                        background-position: left 0;
+                    }
+                     td:nth-child(2){
+                        background-position: left -35px;
+                    }
+                    ...
+                </pre>
+            </div>
+            <p>当表情包多了的时候就用js控制背景位置~~</p>
+            <p><strong>3. </strong>最后一步，我们事先将表情包的图片对应 spirts上的截图顺序编号。
+                当点击截图td时，获取该截图的 <strong>index()</strong>  也就是这个截图我们给他的序号，然后向div里append
+                对应序号的表情图片，大功告成。
+            </p>
+
+            <p>当然 原理很简单，但是真正写的时候遇到的麻烦事还是挺多的，慢慢练手吧~</p>
+            <div class="flow">
+                <!-- UY BEGIN -->
+                <div id="uyan_frame" class="fl half"></div>
+                <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+                <!-- UY END -->
+                <div class="half fr">
+                </div>
+            </div>
+            <p class="artical-detail-date">2016.09.22</p>
+            <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script src="bjq/bjq.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+
+        //编辑器弹出内容
+        $("#alert").click(function(){
+           alert($("#editor_textarea ").html())
+        });
+    });
+
+
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端，css3渐变色，渐变背景，背景美化">
+    <meta name="description" content="RedSpite CSS3 渐变背景色各种方向 兼容IE9+">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » CSS3 渐变背景色各种方向 兼容IE9+</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>CSS3 渐变背景色各种方向 兼容IE9+</h4>
+            <p>在前端书写网页实际运用中，单一的背景色并不能很好地满足需要，在不使用图片资源的选择下，我们还可以使用渐变背景色使自己的页面更丰富。</p>
+            <p>渐变背景分为两种：</p>
+            <p><strong>1.</strong> 线性渐变</p>
+            <p><strong>2.</strong> 环形渐变</p>
+            <p>首先来介绍线性渐变：</p>
+            <h3><strong>线性渐变</strong></h3>
+            <p>线性渐变分为：横向、纵向、对角渐变三种渐变</p>
+            <p>
+                    <pre class="codebox">
+                        background:linear-gradient(参数1，参数2，参数3，参数4....参数N)
+                        background:-webkit-linear-gradient(参数1'，参数2，参数3,参数4....参数N)
+                    </pre>
+            </p>
+            <p>参数1：可填可不填，填写的话写方向 如：to right,就是渐变方向由左到右，不填写默认从上到下渐变。</p>
+            <p>参数1'：与参数1基本一致，写在-webkit-,-moz-,-o-前缀情况下，如：left 代表渐变方向开始的位置</p>
+            <p>参数2：渐变开始颜色，可填rgba()或者#fff或者white,后面加百分比代表颜色占比多少，如 #fff 50% 代表白色占比50%。</p>
+            <p>参数3：若后面无参数 则为渐变终止颜色，与参数2属性可选一致。</p>
+            <p>参数4....参数N:可增加的渐变颜色节点。最后一个为渐变终止颜色</p>
+
+            <div id="gradients">
+                <div id="text" class="ttb"></div>
+            </div>
+            <ul id="choose">
+                <li class="ttb current">从上至下</li>
+                <li class="btt">从下至上</li>
+                <li class="ltr">从左至右</li>
+                <li class="rtl">从右至左</li>
+                <li class="dj">从左上至右下</li>
+                <li class="opac">带透明度</li>
+                <li class="colors">多个颜色节点</li>
+                <li class="repeat">重复的渐变</li>
+            </ul>
+            <ul class="code">
+                <li class="ttb current">
+                        <pre class="codebox">
+                            #text.ttb{
+                                /*从上至下是默认方向*/
+                                background: -webkit-linear-gradient(#fff, #75aaa2); /* Safari 5.1 - 6.0 */
+                                background: -o-linear-gradient(#fff, #75aaa2); /* Opera 11.1 - 12.0 */
+                                background: -moz-linear-gradient(#fff, #75aaa2); /* Firefox 3.6 - 15 */
+                                background: linear-gradient(#fff, #75aaa2); /* 标准的语法（必须放在最后） */
+                            }
+                        </pre>
+                </li>
+                <li class="btt">
+                         <pre class="codebox">
+                            #text.btt{
+                                background: -webkit-linear-gradient(bottom,#fff, #75aaa2);
+                                background: -o-linear-gradient(bottom,#fff, #75aaa2);
+                                background: -moz-linear-gradient(bottom,#fff, #75aaa2);
+                                background: linear-gradient(to top,#fff, #75aaa2); /* 标准的语法（必须放在最后） */
+                            }
+                        </pre>
+                </li>
+                <li class="ltr">
+                        <pre class="codebox">
+                            #text.ltr{
+                                background: -webkit-linear-gradient(left,#fff,#75aaa2);
+                                background: -moz-linear-gradient(left,#fff,#75aaa2);
+                                background: -o-linear-gradient(left,#fff,#75aaa2);
+                                background: linear-gradient(to right,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+                            }
+                        </pre>
+                </li>
+                <li class="rtl">
+                        <pre class="codebox">
+                            #text.rtl{
+                                background: -webkit-linear-gradient(right,#fff,#75aaa2);
+                                background: -moz-linear-gradient(right,#fff,#75aaa2);
+                                background: -o-linear-gradient(right,#fff,#75aaa2);
+                                background: linear-gradient(to left,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+                            }
+                        </pre>
+                </li>
+                <li class="dj">
+                        <pre class="codebox">
+                            #text.tltbr{
+                                background: -webkit-linear-gradient(top left,#fff,#75aaa2);
+                                background: -o-linear-gradient(top left,#fff,#75aaa2);
+                                background: -moz-linear-gradient(top left,#fff,#75aaa2);
+                                background: linear-gradient(to bottom right,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+                            }
+                        </pre>
+                </li>
+                <li class="opac">
+                        <pre class="codebox">
+                            #text.opac{
+                                background: -webkit-linear-gradient(rgba(256,256,256,0), #75aaa2);
+                                background: -o-linear-gradient(rgba(256,256,256,0), #75aaa2);
+                                background: -moz-linear-gradient(rgba(256,256,256,0), #75aaa2);
+                                background: linear-gradient(rgba(256,256,256,0), #75aaa2); /* 标准的语法（必须放在最后） */
+                            }
+                        </pre>
+                </li>
+                <li class="colors">
+                        <pre class="codebox">
+                            #text.colors{
+                                background: -webkit-linear-gradient(#fff,#a0d6a6, #75aaa2);
+                                background: -o-linear-gradient(#fff,#a0d6a6, #75aaa2);
+                                background: -moz-linear-gradient(#fff,#a0d6a6, #75aaa2);
+                                background: linear-gradient(#fff,#a0d6a6, #75aaa2); /* 标准的语法（必须放在最后） */
+                            }
+                        </pre>
+                </li>
+                <li class="repeat">
+                        <pre class="codebox">
+                            #text.repeat{
+                                background: -webkit-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+                                background: -o-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+                                background: -moz-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+                                background: repeating-linear-gradient(#fff 10%,#75aaa2 20%);/* 标准的语法（必须放在最后） */
+                            }
+                        </pre>
+                </li>
+            </ul>
+        </div>
+        <div class="flow">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame" class="fl half"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+            <!-- UY END -->
+            <div class="half fr">
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.08.01</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,网格算法,图片切换效果,多彩绚丽">
+    <meta name="description" content="网格算法配合CSS3，实现多彩绚丽的图片切换效果 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 网格算法配合CSS3，实现多彩绚丽的图片切换效果 文章详情</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>网格算法配合CSS3，实现多彩绚丽的图片切换效果</h4>
+            <p>平时喜欢在网上看看同行的博客，看到一个很好看的图片切换效果，很炫酷，果断学来了~ 哈哈</p>
+            <p>
+                这是利用4个div显示同一图片的不同区域，css控制各图片位置，进行显示与隐藏，再给图片加上transition时长，就能形成华丽的视觉效果。
+                很多看似炫酷的效果，究其原理还是很简单的。心态放正，不要怕，直接上！
+            </p>
+            <div class="grid-box">
+                <ul class="pic1">
+                    <li>
+                        <img src="image/about1.jpg" alt="图片1">
+                    </li>
+                    <li>
+                        <img src="image/about1.jpg" alt="图片2">
+                    </li>
+                    <li>
+                        <img src="image/about1.jpg" alt="图片3">
+                    </li>
+                    <li>
+                        <img src="image/about1.jpg" alt="图片4">
+                    </li>
+                </ul>
+                <span class="pic2"></span>
+            </div>
+            <h5>HTML:</h5>
+            <div class="code">
+                <pre class="codebox">
+                     <div class="grid-box">
+                         <ul class="pic1">
+                             <li>
+                                 <img src="image/about1.jpg" alt="图片1">
+                             </li>
+                             <li>
+                                 <img src="image/about1.jpg" alt="图片2">
+                             </li>
+                             <li>
+                                 <img src="image/about1.jpg" alt="图片3">
+                             </li>
+                             <li>
+                                 <img src="image/about1.jpg" alt="图片4">
+                             </li>
+                         </ul>
+                         <span class="pic2"></span>
+                     </div>
+                </pre>
+            </div>
+            <h5>CSS:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    .grid-box{
+                        position: relative;
+                        width: 280px;
+                        height: 220px;
+                        overflow: hidden;
+                        border-radius: 10px;
+                        border: 10px solid #dee5e1;
+                        margin: 0 auto;
+                    }
+
+                    .pic1, .pic2{
+                        font-size: 0;
+                        box-sizing: content-box;
+                        width: 260px;
+                        height: 200px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        cursor: pointer;
+                    }
+                    .pic1 li{
+                        width: 50%;
+                        height: 100px;
+                        position: relative;
+                        overflow: hidden;
+                        float: left;
+                    }
+
+                    .pic1 li > img{
+                        position: absolute;
+                    }
+                     .pic1 li > img,.pic1:hover li > img,.pic2 , .grid-box:hover .pic2{
+                        transition: all 0.5s ease;
+                    }
+                    .pic1 li:nth-child(1) img{
+                        left:0;
+                        top:0;
+                    }
+                    .pic1 li:nth-child(2) img{
+                        left: -130px;
+                        top: 0;
+                    }
+                    .pic1 li:nth-child(3) img{
+                        left:0;
+                        top: -100px;
+                    }
+                    .pic1 li:nth-child(4) img{
+                        left: -130px;
+                        top: -100px;
+                    }
+                    .pic2{
+                        transform: scale(1.5);
+                        -o-transform: scale(1.5);
+                        -moz-transform: scale(1.5);
+                        background: url("../image/about2.jpg") no-repeat center;
+                        background-size: cover;
+                        z-index: -1;
+                    }
+                    .grid-box:hover .pic2{
+                        transform: scale(1);
+                        -o-transform: scale(1);
+                        -moz-transform: scale(1);
+                        display: block;
+                    }
+                    .pic1:hover li:nth-child(1) img{
+                        /*向下滑*/
+                        top:100px;
+                    }
+                    .pic1:hover li:nth-child(2) img{
+                        /*向左滑*/
+                        left: -260px;
+                    }
+                    .pic1:hover li:nth-child(3) img{
+                        /*向右滑*/
+                        left: 130px;
+                    }
+                    .pic1:hover li:nth-child(4) img{
+                        /*向上滑*/
+                        top: -260px;
+                    }
+                </pre>
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.10.08</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+    $(function () {
+
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

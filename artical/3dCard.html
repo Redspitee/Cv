@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端,3d轮播,图片切换效果,超炫轮播">
+    <meta name="description" content="抽牌效果之banner轮播 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 抽牌效果之banner轮播 文章详情</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>抽牌效果之banner轮播</h4>
+            <p>banner轮播方式真的很多，这也算一种特别的轮播方式了吧~ </p>
+            <p>css3结合jq，炫的都是css3的功劳。</p>
+            <div id="fp-box">
+                <ul class="fp-img-box">
+                    <li>
+                        <img src="/image/ban1.jpg" alt="banner1">
+                    </li>
+                    <li>
+                        <img src="/image/ban2.jpg" alt="banner2">
+                    </li>
+                    <li>
+                        <img src="/image/ban3.jpg" alt="banner3">
+                    </li>
+                </ul>
+                <ul class="fp-num-box"></ul>
+            </div>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    <div class="fp-box">
+                        <ul class="fp-img-box">
+                            <li>
+                                <img src="/image/ban1.jpg" alt="banner1">
+                            </li>
+                            <li>
+                                <img src="/image/ban2.jpg" alt="banner2">
+                            </li>
+                            <li>
+                                <img src="image/ban3.jpg" alt="banner3">
+                            </li>
+                        </ul>
+                        <ul class="fp-num-box"></ul>
+                    </div>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    #fp-box，.fp-img-box li, .fp-img-box{
+                        width:100%;
+                        padding-bottom: 30%;
+                        height: 0;
+                    }
+                    .fp-box{
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .fp-img-box{
+                        margin-bottom: 0;
+                        -webkit-perspective: 800px;
+                        perspective: 800px;
+                        -webkit-transform-style: preserve-3d;
+                        transform-style: preserve-3d;
+                    }
+                    .fp-img-box li{
+                        position: absolute;
+                        top:0;
+                        left: 0;
+                        visibility: hidden;
+                    }
+                    .fp-img-box li img{
+                        width: 100%;
+                    }
+                    .fp-num-box{
+                        position: absolute;
+                        bottom: 5px;
+                        width: 100%;
+                        text-align: center;
+                        margin-bottom: 0;
+                    }
+                    .fp-num-box li{
+                        width: 12px;
+                        height: 12px;
+                        background: #fff;
+                        border: 2px solid #75aaa2;
+                        display: inline-block;
+                        border-radius: 50%;
+                        margin: 0 2px;
+                        cursor: pointer;
+                    }
+                    .fp-num-box li.active{
+                        background: #75aaa2;
+                        border: 2px solid #fff;
+                    }
+                    .fp-img-box li.show{
+                        visibility: visible;
+                        z-index: 10;
+                    }
+                    .fp-img-box li.show.right{
+                        -webkit-animation: showright 1s ease;
+                        animation: showright 1s ease;
+                    }
+                    .fp-img-box li.hides.right{
+                        -webkit-animation: hideright 1s ease;
+                        animation: hideright 1s ease;
+                    }
+                    .fp-img-box li.show.left{
+                        -webkit-animation: showleft 1s ease;
+                        animation: showleft 1s ease;
+                    }
+                    .fp-img-box li.hides.left{
+                        -webkit-animation: hideleft 1s ease;
+                        animation: hideleft 1s ease;
+                    }
+                    @-webkit-keyframes showright {
+                        0%{ -webkit-transform: translateZ(-200px)}
+                        50%{ -webkit-transform: translate(40%,0) scale(0.8) rotateY(-30deg)}
+                        100%{ -webkit-transform: translateZ(0px)}
+                    }
+                    @keyframes showright {
+                        0%{ transform: translateZ(-200px)}
+                        50%{ transform: translate(40%,0) scale(0.8) rotateY(-30deg)}
+                        100%{ transform: translateZ(0px)}
+                    }
+                    @-webkit-keyframes hideright {
+                        0%{ -webkit-transform: translateZ(0px);visibility: visible;}
+                        50%{ -webkit-transform: translate(-40%, 0) scale(0.8) rotateY(30deg)}
+                        100%{ -webkit-transform: translateZ(-200px);visibility: hidden;}
+                    }
+                    @keyframes hideright {
+                        0%{ transform: translateZ(0px);visibility: visible;}
+                        50%{ transform: translate(-40% ,0) scale(0.8) rotateY(30deg)}
+                        100%{ transform: translateZ(-200px);visibility: hidden}
+                    }
+                    @-webkit-keyframes showleft {
+                        0%{ -webkit-transform: translateZ(-200px)}
+                        50%{ -webkit-transform: translate(40%, 0) scale(0.8) rotateY(-30deg)}
+                        100%{ -webkit-transform: translateZ(0px)}
+                    }
+                    @keyframes showleft {
+                        0%{ transform: translateZ(-200px)}
+                        50%{ transform: translate(40% ,0) scale(0.8) rotateY(-30deg)}
+                        100%{ transform: translateZ(0px)}
+                    }
+                    @-webkit-keyframes hideleft {
+                        0%{ -webkit-transform: translateZ(0px);visibility: visible;}
+                        50%{ -webkit-transform: translate(-40%, 0) scale(0.8) rotateY(30deg)}
+                        100%{ -webkit-transform: translateZ(-200px);visibility: hidden;}
+                    }
+                    @keyframes hideleft  {
+                        0%{ transform: translateZ(0px);visibility: visible;}
+                        50%{ transform: translate(-40% ,0) scale(0.8) rotateY(30deg)}
+                        100%{ transform: translateZ(-200px);visibility: hidden}
+                    }
+
+                </pre>
+            </div>
+            <h5>JS:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    $(function () {
+                        var img = $(".fp-img-box li");
+                        var size = img.size();
+
+                        //生成小圆点
+                        var _LiHtml='';
+                        for(var i=0;i< size;i++){
+                            _LiHtml+=' <li> </li>';
+                        }
+                        $(".fp-num-box").append(_LiHtml);
+
+                        //初始状态
+                        var num = $(".fp-num-box li");
+                        img.eq(0).addClass("show");
+                        num.eq(0).addClass("active").siblings().removeClass("active");
+                        var t = setInterval( move,3000);
+                        //主函数
+                        function move(){
+                            var i = $(".fp-num-box li.active").index();
+                            i++;
+                            // console.log(i);
+                            if(i>=size){
+                                i=0;
+                            }else if(i<=0){
+                                i=size;
+                            }
+                            img.eq(i).attr("class","show right");
+                            img.eq(i-1).attr("class","hides right");
+                            num.eq(i).addClass("active").siblings().removeClass("active");
+                        }
+                        //圆点点击
+                        num.click(function () {
+                            clearInterval(t);
+                            var index = $(".fp-num-box li.active").index();
+                            var i = $(this).index();
+                            //点击已激活左侧
+                            if(index>i){
+                                img.eq(i).attr("class","show left");
+                                img.eq(index).attr("class","hides left");
+                            //点击已激活右侧
+                            }else if(index < i){
+                                img.eq(i).attr("class","show right");
+                                img.eq(index).attr("class","hides right");
+                            }else{
+                            }
+                            num.eq(i).addClass("active").siblings().removeClass("active");
+                            t = setInterval(move,3000);
+                        });
+                    });
+                </pre>
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.10.11</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+    $(function () {
+        var img = $(".fp-img-box li");
+        var size = img.size();
+
+        //生成小圆点
+        var _LiHtml='';
+        for(var i=0;i<size;i++){
+            _LiHtml+='<li></li>';
+        }
+        $(".fp-num-box").append(_LiHtml);
+
+        //初始状态
+        var num = $(".fp-num-box li");
+        img.eq(0).addClass("show");
+        num.eq(0).addClass("active").siblings().removeClass("active");
+        var t = setInterval( move,3000);
+
+        function move(){
+            var i = $(".fp-num-box li.active").index();
+            i++;
+            // console.log(i);
+            if(i>=size){
+                i=0;
+            }else if(i<=0){
+                i=size;
+            }
+            img.eq(i).attr("class","show right");
+            img.eq(i-1).attr("class","hides right");
+            num.eq(i).addClass("active").siblings().removeClass("active");
+        }
+        num.click(function () {
+            clearInterval(t);
+            var index = $(".fp-num-box li.active").index();
+            var i = $(this).index();
+            if(index>i){
+                img.eq(i).attr("class","show left");
+                img.eq(index).attr("class","hides left");
+            }else if(index<i){
+                img.eq(i).attr("class","show right");
+                img.eq(index).attr("class","hides right");
+            }else{
+            }
+            num.eq(i).addClass("active").siblings().removeClass("active");
+            t = setInterval(move,3000);
+        });
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

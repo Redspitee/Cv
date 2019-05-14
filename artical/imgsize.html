@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端，响应式图片，图片比例固定，纯css响应式">
+    <meta name="description" content="RedSpite 纯css响应式图片尺寸比例固定 ">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 纯css响应式图片尺寸比例固定</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>纯css响应式图片尺寸比例固定</h4>
+            <p>这段时间公司官网首页翻版，尝试了一直没写过的响应式布局，就这段时间写的几个响应式网页来看啊,bootstrap用得最多的就是12栅格布局了吧~</p>
+            <p>以前一直觉得页面的每一个代码都要自己手敲，现在倒是觉得自己傻了。。。</p>
+            <p>不扯闲话，响应式页面让人头疼的是图片大小怎么弄。</p>
+            <p>当能用的图片是从第三方引过来，我们不能控制图片的尺寸，而且图片大小还不能写成定值的时候,似乎只剩用js动态写一条路了，初期的我也是用了这个方法。</p>
+            <p>可是js写第一太麻烦不灵活，window.resize每次窗口缩放都要 运行一边代码，无疑这加重了浏览器负担。二是就算js写也是定值像素，图片会被压缩变形。</p>
+            <p>所幸找到用<strong> 纯css就能实现, 图片在响应式布局里,能保持规定尺寸比例 </strong>的方法，如下：</p>
+            <div id="photobox" class="col-md-12">
+                <div class="col-md-4">
+                    <img src="/image/s7.jpg" alt="配图测试">
+                </div>
+            </div>
+            <p><strong>原比例约为5:3，展示为1:1</strong></p>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                     <div id="imgbox">
+                         <img src="/image/s7.jpg" alt="配图测试">
+                     </div>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    #imgbox{
+                        width: 30%;             /*图片宽度比例*/
+                        padding-bottom: 30%;    /*图片高度比例*/
+                        height: 0;
+                        overflow: hidden;
+                    }
+                    #imgbox img{
+                        min-width:100%;
+                    }
+                </pre>
+            </div>
+            <div class="flow">
+                <!-- UY BEGIN -->
+                <div id="uyan_frame" class="fl half"></div>
+                <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+                <!-- UY END -->
+                <div class="half fr">
+                </div>
+            </div>
+        <p class="artical-detail-date">2016.09.21</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+</html>

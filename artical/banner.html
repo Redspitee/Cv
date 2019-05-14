@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端，全屏轮播，自适应轮播，热点图,轮播jq手写">
+    <meta name="description" content="RedSpite 全屏自适应 热点图轮播banner简洁代码 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite »全屏自适应 热点图轮播banner简洁代码 文章详情</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>全屏自适应 热点图轮播banner简洁代码</h4>
+            <p>在我才从零开始接触前端时，学的第一个特效就是banner轮播。js语言和c语言有很多相似之处，所以真是庆幸大学有好好考计算机二级呀。。汗！</p>
+            <p>初级小白通过自己一点一点摸索，总算写出了这个自适应大小的banner轮播图，可以无缝轮播，并自适应屏幕大小按比例缩小图片。</p>
+            <p>不过有个bug 。。  哈哈哈 只能用左右切换的方式轮播，因为整体div高度是自适应变化的，没有写死。</p>
+            <p>如果用淡入淡出效果，会有一个间隔时间整个div高度为零，下面的内容就会被挤上来</p>
+            <p>解决的方法是用window.resize 获取图片高度，再赋给div。但是我比较喜欢左右切换的效果，所以就没写啦~ 哈哈哈</p>
+            <div class="banner_div">
+                <ul class="banner_num"></ul>
+                <ul class="banner_img">
+                    <li>
+                        <a>
+                            <img src="/image/ban1.jpg" alt="轮播1">
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="/image/ban2.jpg" alt="轮播2">
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="/image/ban3.jpg" alt="轮播3">
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="/image/ban1.jpg" alt="轮播1">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h5>HTML:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    <div class="banner_div">
+                        <ul class="banner_num"></ul>
+                        <ul class="banner_img" style="margin-left: -100%;">
+                            <li>
+                                <a>
+                                    <img src="image/ban1.jpg" alt="轮播1">
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="image/ban2.jpg" alt="轮播2">
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="image/ban3.jpg" alt="轮播3">
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="image/ban1.jpg" alt="轮播1">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </pre>
+            </div>
+            <h5>CSS:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    .banner_div{        //最外部div容器
+                        width:100%;
+                        height:auto;
+                        overflow: hidden;
+                        position: relative;
+                    }
+                    .banner_img{        //图片列表
+                        width:400%;
+                        height:auto;
+
+                    }
+                    .banner_img li{
+                        width: 25%;
+                        height:auto;
+                        float: left;
+                    }
+                    .banner_img li img{
+                        width:auto;
+                        height:auto;
+                        max-width: 100%;
+                        max-height:100%;
+                    }
+                    .banner_num{        //小圆点
+                        position: absolute;
+                        bottom: 1vh;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .banner_num li{
+                        float: none;
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        margin:0 5px;
+                        border-radius: 50%;
+                        border: 2px solid #d9edf7;
+                        background: #fff;
+                        box-sizing: border-box;
+                        cursor:pointer;
+                    }
+                    .banner_num li.active{
+                        background: #75aaa2;
+                        border: 2px solid #fff;
+                    }
+                </pre>
+            </div>
+            <h5>JS:</h5>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    //banner 圆点生成
+                    var size = $(".banner_img li").length;
+                    for (var j = 1; j < size; j++) {
+                        var _html = '<li></li>';
+                        $(".banner_num").append(_html);
+                    }
+                    //第一个小圆点加激活样式
+                    $(".banner_num li:first-child").addClass("active");
+                    var i = 0;
+                    var t = setInterval(move, 4000);
+                    //鼠标滑过清除轮播定时器
+                    $(".banner_div").hover(function () {
+                        clearInterval(t);
+                    }, function () {
+                        t = setInterval(move, 4000);
+                    });
+                    //圆点点击 显示相应banner
+                    $(".banner_num li").click(function () {
+                        $(this).addClass("active").siblings().removeClass("active");
+                        var index = $(this).index();
+                        i = index;
+                        if (i == 0) {
+                            i = size - 1;
+                        }
+                        var left = -i * (100) + "%";
+                        $(".banner_img").css("marginLeft", left);
+                    });
+                    //banner 轮播函数
+                    function move() {
+                        i++;
+                        if (i == size - 1) {
+                            show();
+                            $(".banner_num li").eq(0).addClass("active").siblings().removeClass("active");
+                        } else if (i == size) {
+                            //无缝轮播的重点！ 轮播到最后一张banner时定位到第一张banner
+                            $(".banner_img").css("margin-left", "0");
+                            i = 1;
+                            show();
+                        } else {
+                            show();
+                        }
+                    }
+
+                    function show() {
+                        var left = -i * (100) + "%";
+                        $(".banner_img").animate({marginLeft: left}, 500);
+                        $(".banner_num li").eq(i).addClass("active").siblings().removeClass("active");
+                    }
+                </pre>
+            </div>
+        </div>
+        <div class="flow">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame" class="fl half"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+            <!-- UY END -->
+            <div class="half fr">
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.07.26</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+    $(function () {
+        //banner 圆点生成
+        var size = $(".banner_img li").length;
+        for (var j = 1; j < size; j++) {
+            var _html = '<li></li>';
+            $(".banner_num").append(_html);
+        }
+        $(".banner_num li:first-child").addClass("active");
+        var i = 0;
+        var t = setInterval(move, 4000);
+        $(".banner_div").hover(function () {
+            clearInterval(t);
+        }, function () {
+            t = setInterval(move, 4000);
+        });
+        //圆点点击
+        $(".banner_num li").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            var index = $(this).index();
+            i = index;
+            if (i == 0) {
+                i = size - 1;
+            }
+            var left = -i * (100) + "%";
+            $(".banner_img").css("marginLeft", left);
+        });
+        function move() {			//banner移动
+            i++;
+            if (i == size - 1) {
+                show();
+                $(".banner_num li").eq(0).addClass("active").siblings().removeClass("active");
+            } else if (i == size) {
+                $(".banner_img").css("margin-left", "0");
+                i = 1;
+                show();
+            } else {
+                show();
+            }
+        }
+
+        function show() {
+            var left = -i * (100) + "%";
+            $(".banner_img").animate({marginLeft: left}, 500);
+            $(".banner_num li").eq(i).addClass("active").siblings().removeClass("active");
+        }
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+span,a{
+    font-size: calc(12rem/14);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url("../image/whitebg.jpg") repeat;
+    font-family:"Microsoft Yahei" ;
+    color: #787978;
+}
+html,body{
+    font-size: 14px;
+}
+a{
+    color:#948C76;
+    text-decoration: none;
+}
+a:hover{
+    color:#948C76;
+    text-decoration:underline
+}
+p{
+    margin-bottom: 0;
+    /*padding-right:1em;*/
+    text-align: justify;
+}
+li{
+    list-style: none;
+}
+span.cspan{
+    padding: 2px 9px;
+    display: inline-block;
+    margin: 5px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.art-img{
+    padding: 0;
+}
+strong{
+    color: #80633f;
+}
+h3{
+    font-size:16px;
+}
+.content{
+    padding: 4.29rem 0 ;
+    margin: 0 auto;
+    width:100%;
+}
+#top{
+    width: 45px;
+    height: 45px;
+    background: #cccccc;
+    border-radius: 5px;
+    position: fixed;
+    right: 20px;
+    bottom: 10%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    display: none;
+    z-index: 1000;
+    opacity: 0.6;
+}
+#top:hover{
+    opacity: 1;
+}
+.container{
+    max-width: 1000px!important;
+    position: relative;
+}
+.header-box{
+    height: auto;
+    transform: translateY(-2.14rem);
+    opacity: 0;
+    width:100%;
+}
+.header-box,p.myid{
+    margin-bottom: 2.86rem;
+    text-align: center;
+}
+.header-box img{
+    width: 8.57rem;
+    height: 8.57rem;
+    border-radius: 50%;
+}
+.fadein{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    transition: 1s;
+}
+p.myid{
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 0 0.71rem;
+    color: #948C76;
+    letter-spacing: 0.1em;
+    background: #F7F3EE;
+    display:inline-block;
+    margin-top: 0;
+    height: 2.71rem;
+    line-height: 2.71rem;
+}
+.center{
+    text-align: center;
+}
+.my-sort a{
+    margin: 0 0.71rem;
+}
+.my-sort {
+    margin: 0 0 5.71rem ;
+}
+.my-artical{
+    padding-left: 15%;
+}
+.my-artical .articals{
+    width:100%;
+    position: relative;
+    min-height: 14.29rem;
+}
+.my-artical img{
+    padding-right: 1em;
+    margin-bottom: 1em;
+}
+.articals .like{
+    position: absolute;
+    top: 2.86rem;
+    left:0;
+}
+.articals .like span{
+    padding-left: 1.57rem;
+    background: url("../image/sprits.png") no-repeat 0 -13.71rem;
+}
+.dotts{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.143rem solid #F1F0EE;
+    position: absolute;
+    top: 0;
+    font-size: 0;
+    line-height:0;
+    border-radius: 50%;
+    background: #fdfdfd;
+    margin-left: -0.6rem;
+    z-index: 10;
+}
+.articals .ar-container{
+    width: 100%;
+    padding: 0 0 0 1%;
+    position: relative;
+}
+.my-date,.articals  .my-line,.dotts{
+    left: 1%;
+}
+.ar-content{
+    padding: 2.86rem 0 5.72rem 2.86rem;
+    overflow: hidden;
+}
+.ar-container .my-line{
+    width: 0.143rem;
+    height: 100%;
+    background:#F1F0EE;
+    position: absolute;
+    z-index: 0;
+    transition: 0.5s;
+}
+
+.my-date {
+    display: block;
+    position: absolute;
+    top: -0.71rem;
+    margin-left: 2.86rem;
+    height: 2.14rem;
+    color: #948C76;
+    z-index: 10;
+    transition: 0.3s;
+}
+.my-date span{
+    font-size: 0;
+    line-height: 0;
+}
+.my-date span.trig{
+    position: absolute;
+    left: -1.14rem;
+    top: 0;
+    border-right: 1.21rem solid #F7F3EE;
+    border-top: 1.07rem dashed transparent;
+    border-bottom: 1.07rem dashed transparent;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.my-date .dates{
+    display: inline-block;
+    padding: 0 1rem 0 1.42rem;
+    height:2.14rem;
+    background: #F7F3EE;
+    font-size: 0.86rem;
+    vertical-align: top;
+    line-height: 2.14rem;
+
+}
+.my-date:hover{
+    color:#948c76 ;
+    margin-left: 2.14rem;
+    transition: 0.3s;
+}
+.my-date:hover span.dates{
+    background: #e7d9ba ;
+}
+.my-date:hover span.trig{
+    border-right-color: #e7d9ba;
+}
+.ar-content a{
+    color: #444;
+    font-size: 1rem;
+}
+.art-detail p{
+    text-align: justify;
+}
+.art-detail{
+    font-size: 12px;
+    padding-top: 0.5em;
+}
+.art-title{
+    margin-bottom: 20px;
+}
+.beian{
+    font-size: 12px;
+}
+.art-img >img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+#artical-detail h4{
+    color: #111;
+    text-align: center;
+    margin-bottom: 3em;
+    font-size: 16px;
+}
+#artical-detail p{
+    font-size: 14px;
+}
+.artical-detail-date{
+    color: #948C76;
+    margin: 2em 0 5em;
+    font-size: 12px;
+}
+#contain{
+    border: 1px solid #f7f3ee;
+    margin-bottom: 1em;
+}
+.stx-header{
+    display: none!important;
+}
+/*
+    音乐播放
+*/
+#music {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 10%;
+    z-index: 1000;
+    cursor: pointer;
+    animation: rotate 3s infinite linear;
+    -webkit-animation: rotate 3s infinite linear;
+}
+#music:hover,#music.pause{
+    animation: none;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 980px){
+    .anima-box li:nth-child(2n+1){
+        clear: both;
+    }
+}
+@media screen and (max-width: 768px){
+    .my-sort, #artical-detail h4{
+        margin-bottom: 3em;
+    }
+    .ar-content{
+        padding-bottom: 4em;
+    }
+}
+@media only screen and (max-width:450px) {
+    .art-detail{
+        max-height: 5em;
+        line-height: 18px;
+        overflow: hidden;
+    }
+    .ar-content{
+        padding-left: 1.5em;
+    }
+    .my-artical {
+        padding-left: 5%;
+    }
+}

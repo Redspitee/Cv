@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,纯css3实现3d旋转,3d效果手写,css3超酷效果">
+    <meta name="description" content="纯css实现盒子3d旋转效果文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 纯css实现盒子3d旋转效果 文章详情</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/styleS.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>纯css实现盒子 3D 旋转效果</h4>
+            <p>平时看到动画下意识就觉得很难，出于畏惧心理老是不敢去碰，就像看到一个漂亮女生不敢上去搭讪(。。)。</p>
+            <p>拔过嘛，再难得东西都是禁不住你死缠烂打的（追姑娘同理 哈哈哈。。）所以现在就从头理理，这个3d效果究竟是怎么实现的。</p>
+            <p>IE不支持 <span class="cspan">transform-style: preserve-3d</span>，真是很遗憾啊！</p>
+            <p>先来个预览：</p>
+            <div class="wrap-box">
+                <div class="box-content">
+                    <div class="l-front"> <img src="image/01.jpg" alt="1"></div>
+                    <div class="l-left"> <img src="image/02.jpg" alt="1"></div>
+                    <div class="l-back"> <img src="image/03.jpg" alt="1"></div>
+                    <div class="l-right"> <img src="image/04.jpg" alt="1"></div>
+                    <div class="m-front"> <img src="image/05.jpg" alt="1"></div>
+                    <div class="m-left"> <img src="image/06.jpg" alt="1"></div>
+                    <div class="m-back"> <img src="image/07.jpg" alt="1"></div>
+                    <div class="m-right"> <img src="image/08.jpg" alt="1"></div>
+                    <div class="s-front"> <img src="image/01.jpg" alt="1"></div>
+                    <div class="s-left"> <img src="image/02.jpg" alt="1"></div>
+                    <div class="s-back"> <img src="image/03.jpg" alt="1"></div>
+                    <div class="s-right"> <img src="image/04.jpg" alt="1"></div>
+                </div>
+            </div>
+            <p>首先，css里关于 3D 最基础的东西要拎出来认识一下 <span class="cspan">transform-style: preserve-3d</span>,
+                使被转换的子元素保留其 3D 转换。其次是 <span class="cspan">perspective: 800px</span>,元素距离视图的距离，以像素计。
+                也就是我们所说的能使容器具有透视效果的一个属性，值越大，它距离我们眼睛的距离就越近，反之同理。
+            </p>
+            <p>这两个属性结合，就可以呈现出 3D 效果。</p>
+            <p>这个栗子里核心的属性还有一个，是 <span class="cspan">transform:translate</span>。</p>
+            <p>首先是 <span class="cspan">transform:translateX()</span>,translateX是元素在X轴上的偏移，正值是向右，负值向左。</p>
+            <p>接着是 <span class="cspan">transform:translateY()</span>,translateY是元素在Y轴上的偏移，想象一个原地旋转的芭蕾舞者，
+                偏移的角度即是舞者旋转的角度。正值是顺时针角度偏移，负值是逆时针角度偏移。</p>
+            <p>最后是 <span class="cspan">transform:translateZ()</span>,translateZ是元素在Z轴上的偏移，参照z-index值，正值是离屏幕越近，
+                反之亦然。</p>
+            <p>根据 translateX Y Z值的不同，即可形成盒子各面。
+                本次栗子正是利用该属性，给前后左右各面加上不同值形成了以上效果。</p>
+            <p>下面贴上核心代码</p>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    <div class="wrap-box">
+                        <div class="box-content">
+                            <div class="l-front"> <img src="image/01.jpg" alt="1"></div>
+                            <div class="l-left"> <img src="image/02.jpg" alt="1"></div>
+                            <div class="l-back"> <img src="image/03.jpg" alt="1"></div>
+                            <div class="l-right"> <img src="image/04.jpg" alt="1"></div>
+                            <div class="m-front"> <img src="image/05.jpg" alt="1"></div>
+                            <div class="m-left"> <img src="image/06.jpg" alt="1"></div>
+                            <div class="m-back"> <img src="image/07.jpg" alt="1"></div>
+                            <div class="m-right"> <img src="image/08.jpg" alt="1"></div>
+                            <div class="s-front"> <img src="image/01.jpg" alt="1"></div>
+                            <div class="s-left"> <img src="image/02.jpg" alt="1"></div>
+                            <div class="s-back"> <img src="image/03.jpg" alt="1"></div>
+                            <div class="s-right"> <img src="image/04.jpg" alt="1"></div>
+                        </div>
+                    </div>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    /*
+                        外部容器
+                    */
+                    .wrap-box{
+                        width: 100%;
+                        height: auto;
+                        perspective: 800px;
+                    }
+                     /*
+                        核心容器
+                    */
+                    .box-content{
+                        width: 200px;
+                        height: 200px;
+                        margin: 2em auto 10em;
+                        transform-style: preserve-3d;
+                        -webkit-transform-style: preserve-3d;
+                        position: relative;
+                        animation: rotate 10s infinite linear;
+                    }
+                    @keyframes rotate {
+                        0%{ transform: rotateX(-10deg) rotateY(0deg) }
+                        50%{ transform: rotateX(-10deg) rotateY(180deg) }
+                        100%{ transform: rotateX(-10deg) rotateY(360deg) }
+                    }
+                    @-webkit-keyframes rotate {
+                        0%{ -webkit-transform: rotateX(-10deg) rotateY(0deg) }
+                        50%{ -webkit-transform: rotateX(-10deg) rotateY(180deg) }
+                        100%{ -webkit-transform: rotateX(-10deg) rotateY(360deg) }
+                    }
+                    .box-content img{
+                        width:100%;
+                    }
+                    .box-content div{
+                        position: absolute;
+                        transition: all 0.2s ease;
+                        left: 0;
+                    }
+                     /*
+                        外层div
+                    */
+                    .box-content div[class^="l"]{
+                        width: 200px;
+                        height: 200px;
+                        top:0;
+                    }
+                     /*
+                        中间div
+                    */
+                    .box-content div[class^="m"]{
+                        width: 150px;
+                        height: 150px;
+                        opacity: 0;
+                        top: 30px;
+                    }
+                     /*
+                        内层div
+                    */
+                    .box-content div[class^="s"]{
+                        width: 100px;
+                        height: 100px;
+                        opacity: 0;
+                        top: 50px;
+                    }
+                    .box-content:hover div[class^="l"]{
+                        top:0;
+                    }
+                    .box-content:hover div[class^="m"]{
+                        opacity: 1;
+                    }
+                    .box-content:hover div[class^="s"]{
+                        opacity: 1;
+                    }
+                     /*
+                        前方元素
+                    */
+                    .box-content div[class*="front"]{
+                        transform: translateZ(100px);
+                        -webkit-transform: translateZ(100px);
+                    }
+                    /*
+                        左边元素
+                    */
+                    .box-content div[class*="left"]{
+                        transform: translateX(-100px) rotateY(-90deg);
+                        -webkit-transform: translateX(-100px) rotateY(-90deg);
+                    }
+                    /*
+                        后方元素
+                    */
+                    .box-content div[class*="back"]{
+                        transform: translateZ(-100px);
+                        -webkit-transform: translateZ(-100px);
+                    }
+                    /*
+                        右边元素
+                    */
+                    .box-content div[class*="right"]{
+                        transform: translateX(100px) rotateY(90deg);
+                        -webkit-transform: translateX(100px) rotateY(90deg);
+                    }
+
+                    .box-content:hover div.l-front{
+                        transform: translateZ(250px);
+                        -webkit-transform: translateZ(250px);
+                    }
+                    .box-content:hover div.m-front{
+                        transform: translateZ(150px);
+                        -webkit-transform: translateZ(150px);
+                    }
+                    .box-content:hover div.s-front{
+                        transform: translateZ(50px);
+                        -webkit-transform: translateZ(50px);
+                    }
+                    .box-content:hover div.l-left{
+                        transform: translateX(-250px) rotateY(-90deg);
+                        -webkit-transform: translateX(-250px) rotateY(-90deg);
+                    }
+                    .box-content:hover div.m-left{
+                        transform: translateX(-150px) rotateY(-90deg);
+                        -webkit-transform: translateX(-150px) rotateY(-90deg);
+                    }
+                    .box-content:hover div.s-left{
+                        transform: translateX(-50px) rotateY(-90deg);
+                        -webkit-transform: translateX(-50px) rotateY(-90deg);
+                    }
+
+                    .box-content:hover div.l-back{
+                        transform: translateZ(-250px);
+                        -webkit-transform: translateZ(-250px);
+                    }
+                    .box-content:hover div.m-back{
+                        transform: translateZ(-150px);
+                        -webkit-transform: translateZ(-150px);
+                    }
+                    .box-content:hover div.s-back{
+                        transform: translateZ(-50px);
+                        -webkit-transform: translateZ(-50px);
+                    }
+
+                    .box-content:hover div.l-right{
+                        transform: translateX(250px) rotateY(90deg);
+                        -webkit-transform: translateX(250px) rotateY(90deg);
+                    }
+                    .box-content:hover div.m-right{
+                        transform: translateX(150px) rotateY(90deg);
+                        -webkit-transform: translateX(150px) rotateY(90deg);
+                    }
+                    .box-content:hover div.s-right{
+                        transform: translateX(50px) rotateY(90deg);
+                        -webkit-transform: translateX(50px) rotateY(90deg);
+                    }
+                </pre>
+            </div>
+            <h5>结语：</h5>
+            <p>越学习越觉得有志者事竟成，很多看起来很难的东西都是纸老虎，慢慢理解，一点一点吃透，当时觉得再大的困难都会变得没问题。
+                别输给自己。</p>
+            <p class="artical-detail-date">2016.10.19</p>
+            <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,纯css三角形,三角形绘制,三角形css3">
+    <meta name="description" content="RedSpite 纯CSS绘制三角形（各种角度）文章详情">
+    <meta name="author" content="张小月,Redspite">
+
+    <title>RedSpite » 纯CSS绘制三角形（各种角度）文章详情</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>纯CSS绘制三角形（各种角度）</h4>
+            <p>前阵子做的设计图里面有用到三角形，以前自学的时候漏掉了，暂且放这儿看看吧~</p>
+            <p>通过改变border宽度 可以得到各种不同形状的三角形</p>
+            <div class="trian">
+                <div id="text" class="up"></div>
+            </div>
+            <ul id="choose">
+                <li class="up current">triangleUp</li>
+                <li class="down">triangleDown</li>
+                <li class="left">triangleLeft</li>
+                <li class="right">triangleRight</li>
+                <li class="tl">triangleTopLeft</li>
+                <li class="tr">triangleTopRight</li>
+                <li class="bl">triangleBottomLeft</li>
+                <li class="br">triangleBottomRight</li>
+            </ul>
+            <ul class="code">
+                <li class="up">
+                       <pre class="codebox" data-type="blank">
+                           #text.up{
+                                width: 0;
+                                height: 0;
+                                border-left: 50px solid transparent;
+                                border-right: 50px solid transparent;
+                                border-bottom: 100px solid #ddd;
+                           }
+                       </pre>
+                </li>
+                <li class="down">
+                        <pre class="codebox" data-type="blank">
+                           #text.down{
+                                width: 0;
+                                height: 0;
+                                border-left: 50px solid transparent;
+                                border-right: 50px solid transparent;
+                                border-top: 100px solid #ddd;
+                           }
+                        </pre>
+
+                </li>
+                <li class="left">
+                       <pre class="codebox" data-type="blank">
+                           #text.left{
+                                width: 0;
+                                height: 0;
+                                border-bottom: 50px solid transparent;
+                                border-top: 50px solid transparent;
+                                border-right: 100px solid #ddd;
+                           }
+                       </pre>
+                </li>
+                <li class="right">
+                       <pre class="codebox" data-type="blank">
+                           #text.right{
+                                width: 0;
+                                height: 0;
+                                border-bottom: 50px solid transparent;
+                                border-top: 50px solid transparent;
+                                border-left: 100px solid #ddd;
+                           }
+                       </pre>
+                </li>
+                <li class="tl">
+                       <pre class="codebox" data-type="blank">
+                           #text.topleft {
+                                width: 0;
+                                height: 0;
+                                border-top: 100px solid #ddd;
+                                border-right: 100px solid transparent;
+                           }
+                       </pre>
+                </li>
+                <li class="tr">
+                        <pre class="codebox" data-type="blank">
+                           #text.topright {
+                                width: 0;
+                                height: 0;
+                                border-top: 100px solid #ddd;
+                                border-left: 100px solid transparent;
+                           }
+                        </pre>
+
+                </li>
+                <li class="bl">
+                       <pre class="codebox" data-type="blank">
+                          #text.bottomleft {
+                            width: 0;
+                            height: 0;
+                            border-bottom: 100px solid #ddd;
+                            border-right: 100px solid transparent;
+                          }
+                       </pre>
+                </li>
+                <li class="br">
+                       <pre class="codebox" data-type="blank">
+                           #text.bottomright {
+                                width: 0;
+                                height: 0;
+                                border-bottom: 100px solid #ddd;
+                                border-left: 100px solid transparent;
+                           }
+                       </pre>
+                </li>
+            </ul>
+        </div>
+        <div class="flow">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame" class="fl half"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+            <!-- UY END -->
+            <div class="half fr">
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.07.25</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

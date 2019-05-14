@@ -1,0 +1,722 @@
+﻿
+body{
+    background: none;
+    background: #fafafa;
+}
+.container{
+    max-width: 1200px!important;
+    overflow: hidden;
+}
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.content{
+    padding: 0;
+}
+#down{
+    width: 90px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #ccc;
+    position: fixed;
+    right:50%;
+    margin-right: -45px;
+    bottom:3%;
+    border-radius: 5px;
+    z-index:999;
+    cursor: pointer;
+    display: none;
+}
+#down:hover{
+    background:#96a3b2 ;
+}
+#down img{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+#section1{
+    color: #2c3e50;
+    position: relative;
+    /*background-image: url(../image/intro-bg.jpg);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+#section5{
+    background: url("../image/skills-bg.jpg") no-repeat center;
+    background-attachment: fixed;
+}
+#section7{
+    background: url("../image/achivements-bg.jpg") no-repeat center;
+    background-attachment: fixed;
+}
+.cv-container{
+    width:100%;
+    margin:0 auto;
+}
+.fades, .fade{
+    transform: translateY(2em);
+    -webkit-transform: translateY(2em);
+    opacity:0;
+}
+.section.active .fadesin1{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    transition: all 1s 0s;
+}
+.section.active .fadesin2{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    transition: all 1s 0.5s;
+}
+.section.active .fadesin3{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    transition: all 1s 1s;
+}
+.section.active .fadesin{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    transition: all 1s 0.2s;
+}
+#section2 .fades img{
+    max-width: 200px;
+    width: 40%;
+    border-radius: 50%;
+}
+
+.section{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding-bottom: 20px;
+}
+.section{
+    min-height: 700px;
+}
+#section7{
+    min-height: 100vh;
+    height: auto;
+}
+#section2,  #section6{
+    height: 80vh;
+}
+#section3, #section5{
+    height: 70vh;
+    padding-bottom: 100px;
+}
+
+#section1 h1{
+    font-family: cursive,'Lato', sans-serif;
+    font-size: 70px;
+    font-weight: 400;
+    margin: 50px 0 30px;
+
+}
+.bg-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.bg-img li,.bg-img li.show{
+    webkit-animation: fadescale 5s forwards;
+    animation: fadescale 5s forwards;
+}
+.bg-img li{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    opacity: 0;
+}
+@keyframes fadescale{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50%{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100%{
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes fadescale{
+    0%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+    50%{
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+    }
+    100%{
+        opacity: 0.5;
+        -webkit-transform: scale(1);
+    }
+}
+.bg-img li:nth-child(1){
+    background: url(../image/bg1.jpg) no-repeat center ;
+    background-size: cover;
+}
+.bg-img li:nth-child(2){
+    background: url(../image/bg2.jpg) no-repeat center ;
+    background-size: cover;
+}
+.bg-img li:nth-child(3){
+    background: url(../image/bg3.jpg) no-repeat center ;
+    background-size: cover;
+}
+.bg-img li:nth-child(4){
+    background: url(../image/bg4.jpg) no-repeat center ;
+    background-size: cover;
+}
+#section1 h3{
+    letter-spacing: 3px;
+    /*color: #96a3b2;*/
+    font-size: 30px;
+    margin: 40px 0;
+}
+.myIntro{
+    padding: 35vh 0 0 ;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.35s;
+    background: rgba(256,256,256,0.5);
+}
+#section1  h1{
+    margin-top:0;
+}
+#section1 div.myIntro > span{
+    display: inline-block;
+    width:150px;
+    height:50px;
+    line-height: 48px;
+    font-size: 16px;
+    /*color: #96a3b2;*/
+    border:  1px solid ;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:  5px;
+    background: rgba(256,256,256,0.8);
+}
+#section1 div > span:hover, #section1 div > span.active{
+    background: #2c3e50;
+    color: #fff;
+}
+
+#nav-bar{
+    width: 100%;
+    height: 70px;
+    background-color: #2c3e50;
+    color: #f5f5f5;
+}
+#nav-bar.fixed{
+    position: fixed;
+    top:0;
+    z-index: 999;
+}
+#nav-bar div.fl{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 70px;
+    color: #ffffff;
+}
+
+.nav-ul li{
+    float: left;
+    line-height: 70px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+}
+.nav-ul li:hover, .nav-ul li.active{
+    color: #E87E04;
+}
+.nav-xs-ul li{
+    color: #f5f5f5;
+}
+.nav-ul.nav-xs-ul{
+    position: absolute;
+    top: 70px;
+    left:0;
+    width:100%;
+    padding-bottom: 1em;
+    background: #2c3e50;
+    display: none;
+}
+.nav-ul.nav-xs-ul li{
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+    font-size: 14px;
+    background: #2c3e50;
+    cursor: pointer;
+    text-align: center;
+}
+.nav-ul.nav-xs-ul li:first-child{
+    border-top: 1px solid #555;
+}
+.more-nav{
+    display: none;
+    cursor: pointer;
+}
+#section2 h2{
+}
+.section h2{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    color: #2c3e50;
+    padding: 150px 0 0;
+    letter-spacing: 2px;
+
+ }
+.section hr{
+    height: 4px;
+    width: 0px;
+    text-align: center;
+    position: relative;
+    background: #E87E04;
+    margin: 0 auto  80px;
+    border: 0;
+    transition: all 0.5s 0.2s;
+}
+.section.active hr{
+    width: 70px;
+}
+.my-intro{
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+.my-intro p{
+    padding: 2em 0 0em;
+    text-indent: 2em;
+}
+.my-intro p a{
+    color: #2a6496;
+    font-size: 14px;
+}
+#section3{
+    background: url("../image/services-bg.jpg") no-repeat center;
+    background-attachment: fixed;
+}
+
+div.skill{
+    padding: 15px;
+}
+div.skill p{
+    text-align: center;
+}
+.skill img{
+    width: 80px;
+    height: 80px;
+    border-radius: 0!important;
+}
+.ptitle{
+    color: #E87E04;
+    margin: 2em 0 1em;
+    font-size: 16px;
+    font-family: "SimHei";
+    text-align: center;
+}
+#section4{
+    height: auto;
+    min-height: 100vh;
+}
+#section4.section hr{
+    margin-bottom: 30px;
+}
+#section4.section .intros{
+    margin-bottom: 60px;
+}
+#section4 .container>div{
+    padding: 10px;
+    transition: all 0.3s linear;
+}
+#section4 .container > div:hover{
+    transition: all 0.3s linear;
+    padding: 0;
+}
+#section4 .container > div .zp-cover{
+    position: absolute;
+    display: none;
+    width: 100%;
+    top: 50%;
+    margin-top: -46px;
+    left: 0;
+}
+#section4 .container > div .zp-cover h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#section4 .container > div .zp-cover p{
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 1em;
+}
+#section4 .container > div .zp-cover img{
+    width: 25px;
+    height: 25px;
+}
+
+#section4 .container > div:hover .zp-cover{
+    display: block;
+    padding:  0 2em;
+}
+#section4 .container > div:hover .imgbox img{
+    -webkit-filter: brightness(0.3);
+    filter: brightness(0.3);
+}
+
+#section4 .container>div .imgbox{
+    width:100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+#section4 .container .imgbox img{
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/*
+    section5
+*/
+
+.wrap-box{
+    position: relative;
+    background: #dddddd;
+    margin: 0 auto;
+}
+
+.circle-wrap, .circle-wrap .percent, .wrap-box{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+.circle-wrap{
+    border: 10px solid #ddd;
+    position: absolute;
+    clip: rect(0,140px,140px,70px);/* 需要显示出来的全部*/
+}
+.circle-wrap.clip-auto{
+    clip:rect(auto, auto, auto, auto);
+}
+.circle-wrap .percent{
+    left: -10px;
+    top: -10px;
+    border: 10px solid #2c3e50;
+    position: absolute;
+}
+.circle-wrap .left-clip {
+    clip:rect( 0 70px 140px 0); /* 需要显示出来的左边*/
+    transition : transform ease;
+}
+.circle-wrap .right-clip {
+    clip: rect(0,140px,140px,70px); /* 需要显示出来的右边*/
+}
+.circle-wrap .right-clip.widt0{
+    width: 0;
+}
+.circle-num{
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 10px;
+    left:10px;
+    background: #fff;
+    z-index: 1;
+    line-height: 120px;
+    border-radius: 50%;
+}
+.circle-num span{
+    font-size: 30px;
+    color: #0c4b62;
+    margin-right: 3px;
+}
+#section5 .wrap-box .left-clip{
+    transform: rotate(180deg);
+}
+#section5.active .fades>div:nth-child(1) .left-clip{
+    transform: rotate(324deg);
+    transition: 2s;
+}
+#section5.active .fades>div:nth-child(2) .left-clip{
+    transform: rotate(324deg);
+    transition: 2s;
+
+}
+#section5.active .fades>div:nth-child(3) .left-clip{
+    transform: rotate(306deg);
+    transition: 2s;
+
+}
+#section5.active .fades>div:nth-child(4) .left-clip{
+    transform: rotate(288deg);
+    transition: 2s;
+
+}
+#section5 .ptitle{
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+/*
+    section6
+*/
+
+#section6 .my-xp{
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+#section6 .my-xp:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1.5px;
+    background-color: #eee;
+}
+#section6 .my-xp li{
+    position: relative;
+    overflow: hidden;
+}
+
+#section6 .date-box{
+    width: 150px;
+    height: 150px;
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius:  50%;
+    padding-top: 30px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -75px;
+}
+#section6 .my-work{
+    width: 40%;
+    text-align: right;
+}
+#section6 .my-xp strong{
+    color: #626e7c;
+    font-size: 16px;
+}
+#section6 .my-work p{
+    text-align: right;
+}
+#section6 .my-xp p.ptitle{
+    margin: 0.5em 0;
+}
+#section6 .date-box p{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+}
+#section6 .my-school{
+    width: 40%;
+    float: right;
+}
+#section6 .my-school p, #section6 .my-school strong{
+    text-align: left;
+    display: block;
+}
+#section6 .my-xp li >div{
+    height: 150px;
+}
+#section6 .my-xp li:not(:first-child){
+    margin-top: 80px;
+}
+#section6 .my-xp li >div:last-child{
+    padding: 1em 0 0;
+}
+
+#section7.section h2 ,#section7.section p{
+    /*color: #fff;*/
+}
+#uyan_frame{
+    width: 100%;
+}
+h4{
+    color: #fff;
+}
+/*
+    屏幕宽度小于1224px
+*/
+@media only screen and (max-width:1224px){
+
+    #section1 div.myIntro{
+
+    }
+    #section1 div.myIntro h1{
+        font-size: 50px;
+
+    }
+    #section1 div.myIntro h3{
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    .nav-ul.nav-xs-ul {
+        display: none;
+    }
+
+    #section6 .fades{
+        width: 50%;
+        margin: 0 auto;
+    }
+    #section6 .date-box{
+        left: 0;
+        margin-left: 0;
+    }
+    #section6 .my-xp:before{
+        left: 85px;
+        margin-left: 0;
+    }
+    #section6 .my-xp .my-xp-box{
+        float: left;
+        width: 55%;
+        margin-left: 160px;
+
+    }
+    #section6 .my-xp .my-xp-box p,  #section6 .my-xp .my-xp-box strong{
+        text-align: left;
+        display: block;
+    }
+}
+@media only screen and (max-width: 768px){
+    /*导航改变*/
+    .nav-ul{
+        display: none;
+    }
+    .more-nav{
+        display: block;
+    }
+    /*我的作品hover改变*/
+    #section4 .container > div .zp-cover{
+        display: block;
+    }
+    #section4 .container>div .imgbox img{
+        -webkit-filter: brightness(0.3);
+        filter: brightness(0.3);
+    }
+    #section6 .fades{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width:767px){
+
+
+    #section3,#section2,#section6,#section5{
+        height: auto;
+        min-height: 100vh;
+    }
+
+
+}
+
+@media only screen and (max-width:415px){
+
+    #section1 div.myIntro h1{
+        font-size: 28px;
+    }
+    #section1 div.myIntro h3{
+        font-size: 16px;
+    }
+    #section1 div.myIntro > span{
+        height: 35px;
+        line-height: 33px;
+        font-size: 14px;
+        width: 200px;
+    }
+    #section3,#section2{
+        height: 120vh;
+    }
+    .section h2{
+        padding-top: 90px;
+
+    }
+    .section hr{
+        margin-bottom: 20px;
+    }
+    .ptitle{
+        margin: 1em 0 0.5em;
+    }
+    /*我的作品 字体改变*/
+    #section4.section .intros{
+        margin-bottom: 20px;
+    }
+    #section4 .container > div .zp-cover p{
+        font-size: 12px;
+
+    }
+    #section5 .container.center{
+        margin-top: 40px;
+    }
+    #section4 .container > div .zp-cover img{
+        display: none;
+    }
+    #section6 .fades{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #section6 .date-box{
+        width: 100px;
+        height: 100px!important;
+    }
+    #section6 .date-box p{
+        font-size: 14px;
+        line-height: 15px;
+    }
+    #section6 .my-xp:before{
+        left: 65px;
+    }
+    #section6 .my-xp .my-xp-box{
+        margin-left: 60px;
+        margin-top: 110px;
+        width: 75%;
+    }
+    #section6 .my-xp li:not(:first-child){
+        margin-top: 20px;
+    }
+
+
+
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端，web前端简历，个人博客">
+    <meta name="description" content="WEB前端工程师——RedSpite的自学之路，个人博客知识笔记与心得记录">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 移动端自适应banner轮播 手写</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>移动端自适应banner轮播 手写</h4>
+            <p>随着移动设备普及率越来越高，我们前端工程师现在必须掌握h5页面的书写了。
+                手机端展示方式不需要太复杂，毕竟屏幕只有这么大嘛不是，所以能搞得花样也不多，运用最多的就是轮播了吧！</p>
+            <p>我喜欢手写常用的前端功能，所以这次也试着自己摸索写一下吧~~</p>
+            <p>首先是需要了解的几位重要人物:</p>
+            <p><strong>* touches</strong></p>
+            <p>触摸点是有多个的，每个Touch对象包含的属性如下。</p>
+            <p>clientX：触摸目标在视口中的x坐标。</p>
+            <p>clientY：触摸目标在视口中的y坐标。</p>
+            <p>identifier：标识触摸的唯一ID。</p>
+            <p>pageX：触摸目标在页面中的x坐标。</p>
+            <p>pageY：触摸目标在页面中的y坐标。</p>
+            <p>screenX：触摸目标在屏幕中的x坐标。</p>
+            <p>screenY：触摸目标在屏幕中的y坐标。</p>
+            <p>target：触目的DOM节点目标。</p>
+            <p><strong>* touchstart</strong></p>
+            <p>touchstart 是手指触摸到屏幕一瞬间触发的事件，可以在这里记录手指在屏幕上的初始位置</p>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    var startX, startY, endX, endY;
+                    $("#bannerm").on("touchstart",function(e){
+                            //开始位置
+                            startX = e.originalEvent.targetTouches[0].clientX;
+                    });
+                </pre>
+            </div>
+            <p><strong>* touchmove</strong></p>
+            <p>touchmove 是手指在页面进行拖拽时触发的事件，可以在这里记录手指在屏幕的最后位置。
+                在这个事件发生期间，调用preventDefault()事件可以阻止滚动。</p>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                    $("#mbanner").on("touchmove", function (e) {
+                            e.preventDefault();
+                            //结束位置
+                            endX = e.originalEvent.targetTouches[0].clientX;
+                    });
+                </pre>
+            </div>
+            <p><strong>* touchend</strong></p>
+            <p>touchend 是手指离开屏幕触发的事件，在这个事件发生期间，调用preventDefault()事件可以阻止滚动。</p>
+            <div class="code">
+                <pre class="codebox" data-type="blank">
+                     $("#mbanner").on("touchend", function (e) {
+                            e.preventDefault();
+                            if ((startX - endX) > 100) {
+                                //判断滑动方向，初始 > 结束 向右
+                            }
+                            else if ((startX - endX) < -100){
+                                //初始 < 结束 向左
+                            }
+                     });
+                </pre>
+            </div>
+            <p><strong>现在来写一写轮播</strong> (移动端查看) </p>
+            <div id="bannerm">
+                <ul>
+                    <li class="active">
+                        <img src="/image/ban1.jpg" alt="banner1">
+                    </li>
+                    <li>
+                        <img src="/image/ban2.jpg" alt="banner2">
+                    </li>
+                    <li>
+                        <img src="/image/ban3.jpg" alt="banner3">
+                    </li>
+                    <li>
+                        <img src="/image/ban1.jpg" alt="banner1">
+                    </li>
+                </ul>
+            </div>
+            <strong class="center" id="numberI">1</strong>
+            <h5>Html:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    <ul id="mbanner">
+                        <li>
+                            <img src="/image/ban1.jpg" alt="banner1">
+                        </li>
+                        <li>
+                            <img src="/image/ban2.jpg" alt="banner2">
+                        </li>
+                        <li>
+                            <img src="/image/ban3.jpg" alt="banner3">
+                        </li>
+                    </ul>
+                </pre>
+            </div>
+            <h5>Css:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    #mbanner{
+                        width: 100%;
+                        margin: 0 auto;
+                        position: relative;
+                        min-height: 100px;
+                        overflow: hidden;
+                    }
+                    #mbanner ul{
+                        width: 400%;
+                        height: 100%;
+                    }
+                    #mbanner li{
+                        position: relative;
+                        width: 25%;
+                        height: 0;
+                        padding-bottom: 7.5%;
+                        overflow: hidden;
+                        float: left;
+                    }
+                    #mbanner li img{
+                        width: 100%;
+                    }
+                </pre>
+            </div>
+            <h5>Js:</h5>
+            <div class="code">
+                <pre class="codebox">
+                    $(function () {
+                        var startX, startY, endX, endY;
+                        var size = $("#bannerm li").size();
+                        $("#bannerm").on("touchstart",function(e){
+                            startX = e.originalEvent.targetTouches[0].clientX;
+                            clearInterval(t);                                             //清除定时轮播
+                        });
+
+                        $("#bannerm").on("touchmove", function (e) {
+                            e.preventDefault();
+                            endX = e.originalEvent.targetTouches[0].clientX;
+                        });
+                        var i, _left;
+                        var t = setInterval(move, 4000);
+                        $("#bannerm").on("touchend", function (e) {
+                            e.preventDefault();
+                            if ((startX - endX) > 100) {
+                                move()
+                            }
+                            else if ((startX - endX) < -100){
+                                //初始 < 结束 左滑
+                                i  = $("#bannerm li.active").index();
+                                i--;
+                                if(i<0){
+                                    var lefts = -100*(size-1) +"%";
+                                    $("#bannerm ul").css("margin-left", lefts);             //无缝轮播
+                                    i = size -2;
+                                    show()
+                                }else {
+                                    show()
+                                }
+                            }
+                            t = setInterval(move, 4000);                                    //定时轮播启动
+                        });
+                        function move(){
+                            //判断滑动方向，初始 > 结束 右滑
+                            i = $("#bannerm li.active").index();
+                            i++;
+                            if(i == size){
+                                $("#bannerm ul").css("margin-left", "0");                  //无缝轮播
+                                i = 1;
+                                show();
+                            }else{
+                                show()
+                            }
+                        }
+                        function show(){
+                            _left = -100*i +"%";
+                            $("#bannerm li").eq(i).addClass("active").siblings().removeClass("active");
+                            $("#bannerm ul").animate({
+                                "margin-left":_left
+                            },500);
+                        }
+                    });
+                </pre>
+            </div>
+        </div>
+        <p>这样就完成了一个移动端自适应的轮播了，可滑动可自动轮播，而且是无缝的~ 我的代码可能还不够简洁，慢慢进步吧！</p>
+        <p>更新于2016.10.06</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+
+    });
+
+    $(function () {
+        var startX, startY, endX, endY;
+        var size = $("#bannerm li").size();
+        $("#bannerm").on("touchstart", function(e) {
+            startX = e.originalEvent.targetTouches[0].clientX;
+            clearInterval(t);                                           //清除定时轮播
+        });
+
+        $("#bannerm").on("touchmove", function (e) {
+            e.preventDefault();
+            endX = e.originalEvent.targetTouches[0].clientX;
+        });
+        var i, _left, numberI;
+        var t = setInterval(move, 4000);
+        $("#bannerm").on("touchend", function (e) {
+            e.preventDefault();
+            if ((startX - endX) > 100) {
+                move()
+            }
+            else if ((startX - endX) < -100){
+                //初始 < 结束 左滑
+                i  = $("#bannerm li.active").index();
+                i--;
+                numberI = i;
+                if(i<0){
+                    var lefts = -100*(size-1) +"%";
+                    $("#bannerm ul").css("margin-left", lefts);             //无缝轮播
+                    i = size -2;
+                    numberI = i;
+                    show()
+                }else {
+                    show()
+                }
+            }
+            t = setInterval(move, 4000);                                    //定时轮播启动
+        });
+        function move(){
+            //判断滑动方向，初始 > 结束 右滑
+            i = $("#bannerm li.active").index();
+            i++;
+            numberI = i;
+            if(i == size){
+                $("#bannerm ul").css("margin-left", "0");               //无缝轮播
+                i = 1;
+                numberI = i;
+                show();
+            }else{
+                show()
+            }
+
+        }
+        function show(){
+            _left = -100*i +"%";
+            if(i==size-1){
+                numberI=0;
+            }
+            $("#bannerm li").eq(i).addClass("active").siblings().removeClass("active");
+            $("#bannerm ul").animate({
+                "margin-left":_left
+            },500);
+            $("#numberI").text(numberI+1);
+        }
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月，Redspite,web前端,3d轮播,图片切换效果,超炫轮播">
+    <meta name="description" content="抽牌效果之banner轮播 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 抽牌效果之banner轮播 文章详情</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>快一个月没写文章总结了</h4>
+            <p>最近换工作，忙着找房子+搬家+努力生活，忙得已经近一个月没写总结了，虽然没写，但是我对前端滴热情一如以往。
+                最近在学习微信小程序，微信小程序是个坑啊，才推出一两个月，api已经废除了好多。
+            </p>
+            <p>不得不说，微信小程序真的很方便，swiper可以很轻松的实现轮播，数据绑定也可以很轻松的实现数据实时更新，原本这都需要angular JS出马的。还有循环，模板，引用等等
+                各种组件都实用到哭，这在一定程度上，让程序开发更少的在页面功能上耗费时间了。确实方便，可是这也让人不寒而栗！
+            </p>
+            <p>如果我们前端工程师 还只是停留在只会用布局搭建页面的水平，那么被小程序OUT掉真是早晚的事。
+                微信小程序推出的傻瓜式组件，即使是并不怎么熟悉css的后端人员都可以搭建出页面。在页面搭建我们的优势已经被缩短了，唯一的优势就是js,所以提升js水平才是可持续发展的道路。</p>
+
+            <p>这两天试着写了两个小程序，感觉很不错，外部接口的引用很是让人有兴趣讷~ 感觉以后要朝着js方向义无反顾的进军了！加油。</p>
+            <p>这一篇水水的文章~ 也算更新了吧 ！哈哈</p>
+        </div>
+    </div>
+    
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+</body>
+</html>

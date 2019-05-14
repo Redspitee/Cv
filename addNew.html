@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>现场监督登记系统</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
+  <link rel="stylesheet" href="assets/css/selectize.default.css">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/amazeui.datetimepicker.css"/>
+  <link rel="stylesheet" href="assets/css/ssi-uploader.min.css"/>
+  <style>   
+    #tables tr td:last-child{display: none}
+    .am-offcanvas-content{ padding: 15px 5px; color: white}
+    .am-form-group p{ margin: 0; font-size: 16px;line-height: 32px;}
+    .am-form-group p.am-u-sm-4{ padding-right: 0}
+    .am-form-group p.am-u-sm-8{ padding-left: 0;}
+    #material img{ height: 90px!important;}
+    .letter-2{ letter-spacing: 23px;}
+    .letter-1{ letter-spacing: 7px;}
+    .selectize-input{ border-radius: 0;border: 1px solid #ccc;}
+    .selectize-control{ line-height: 0}
+    .option{ font-size: 15px;}
+    #ssi-uploadBtn{ display: none;}
+    .ssi-button{ font-size: 14px;}
+    .fr{float: right;}
+    div#signature{ margin-bottom: 2em;overflow:hidden;}
+    div#drawBox{ width: 100vw;height:100vh;padding: 1em;background:#fff;position: fixed;top:0;left:-100vw; }
+    div#drawBox.show{left:0;}
+    /*#drawImg img{ box-shadow: 0 10px 3px -3px #777;border:1px solid #ccc;}*/
+    @media only screen and (min-width:641px) { #content{padding: 0 80px; }}
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<!-- 页面内容 -->
+
+<!-- 侧边栏内容 -->
+<div id="content">
+    <h3 style="margin: 1rem;text-align: center;">新建记录</h3>
+    <form action="#" method="post" onsubmit="return false">
+    <div class="am-form-group">
+        <p class="am-u-sm-4">开始时间</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field timepicker " name="BeginTime" data-date-format="yyyy-mm-dd hh:ii"/></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">截止时间</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field timepicker" name="EndTime" data-date-format="yyyy-mm-dd hh:ii"/></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">专项督查</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="special" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">地点</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="Address" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">问题类型</p>
+        <p class="am-u-sm-8">
+            <input type="text" id="input-tags3" class="demo-default " name="ProblemType">
+            </p>
+            <div style="clear: both;height: 1px;" ></div>
+    </div> 
+    <div class="am-form-group">
+        <p class="am-u-sm-4">督察人员</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="Name" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">记录人员</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="DataInputName" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">是否暗访</p>
+        <p class="am-u-sm-8">
+            <select class="am-form-field" name="IsSecret" >
+                <option value="是">是</option>
+                <option value="否">否</option>
+            </select>
+            </p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">被督察人</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="SuperviseName" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">性别</p>
+        <p class="am-u-sm-8">
+            <select class="am-form-field" name="Sex" >
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">年龄</p>
+        <p class="am-u-sm-8"><input type="number" class="am-form-field" name="Age"  /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">文化程度</p>
+        <p class="am-u-sm-8">
+            <select class="am-form-field" name="Education" >
+                <option value="初中">初中</option>
+                <option value="高中">高中</option>
+                <option value="中专">中专</option>
+                <option value="本科" selected>本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <option value="其他">其他</option>
+            </select></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">民族</p>
+        <p class="am-u-sm-8">
+            <select class="am-form-field" name="Nation" >
+                <option value="汉族">汉族</option>
+                <option value="藏族">藏族</option>
+                <option value="蒙族">蒙族</option>
+                <option value="回族" selected>回族</option>
+                <option value="苗族">苗族</option>
+                <option value="维吾尔族">维吾尔族</option>
+                <option value="羌族">羌族</option>
+                <option value="其他">其他</option>
+            </select>
+            </p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">警号</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="PoliceID"  /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">职务</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="Position" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-2">住址</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="Home" /></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">政治面貌</p>
+        <p class="am-u-sm-8">
+            <select class="am-form-field" name="Political" >
+                <option value="中共党员">中共党员</option>
+                <option value="共青团员" selected>共青团员</option>
+                <option value="少先队员">少先队员</option>
+                <option value="民主党派">民主党派</option>
+                <option value="无党派人士">无党派人士</option>
+                <option value="其他">其他</option>
+            </select></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">被督单位</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="Department"/></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4">所属所队</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="ParentDepartment"/></p>
+    </div>
+    <div class="am-form-group">
+        <p class="am-u-sm-4 letter-1">负责人</p>
+        <p class="am-u-sm-8"><input type="text" class="am-form-field" name="managerName"/></p>
+    </div>
+    <div class="am-form-group" style="padding: 0 1rem">
+        <p>监督过程及结论</p>
+        <p><textarea class="am-form-field" name="content" ></textarea></p>
+    </div>
+    <div class="am-form-group" style="padding: 0 1rem;position:relative">
+        <p>图片材料</p>
+        <input type="file" multiple id="photos" >
+        <button class=" ssi-button success" id="draw" style="position: absolute;top: 37px;right:14px;">画板</button>
+    </div>
+    <div id="signature" style="padding: 0 1rem;">
+    </div>
+    	
+    <div class="am-form-group" style="padding: 0 1em;height: 100px;text-align: right" > 
+        <button type="submit" id="submit" class="am-btn am-btn-primary am-u-sm-4 fr" data-am-modal="{target: '#my-alert'}">保 存</button>
+    </div>
+    </form>
+</div>
+
+<div id="drawBox">
+    <div class="js-signature" data-width="600" data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+    <p>
+        <button id="clearBtn" class="am-btn am-btn-danger " onclick="clearCanvas();">清空</button>
+        <button id="saveBtn" class="am-btn am-btn-success fr" onclick="saveSignature();" disabled>保存</button>
+    </p>
+    
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">新建记录</div>
+    <div class="am-modal-bd">
+      保存成功！
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn">确 定</span>
+    </div>
+  </div>
+</div>
+
+<!--菜单-->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="background: #fff;border-top: 1px solid #ddd;">
+        <li >
+          <a href="index.html">
+              <span class="am-icon-th-list"></span>
+              <span class="am-navbar-label">督察列表</span>
+          </a>
+        </li>
+        <li>
+          <a href="addNew.html" class="current">
+              <span class="am-icon-plus-square"></span>
+              <span class="am-navbar-label">新建录入</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html">
+              <span class="am-icon-wifi"></span>
+              <span class="am-navbar-label">数据上传</span>
+          </a>
+        </li>
+        <li>
+          <a href="setting.html">
+              <span class="am-icon-cog"></span>
+              <span class="am-navbar-label">系统设置</span>
+          </a>
+        </li>
+    </ul>
+</div>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--<script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js"></script>-->
+
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datetimepicker.min.js"></script>
+<script src="assets/js/selectize.min.js"></script>
+<script src="assets/js/ssi-uploader.min.js"></script>
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>-->
+<script src="assets/js/jq-signature.js"></script>
+<script type="text/javascript">
+		
+
+</script>
+
+<script>
+var imgs =[];
+     $.fn.datetimepicker.dates['zh-CN'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今天",
+        suffix: [],
+        meridiem: ["上午", "下午"],
+        rtl: false // 从右向左书写的语言你可以使用 rtl: true 来设置
+    };
+    $(function(){
+
+
+        $('.timepicker').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii',
+            language:  'zh-CN'
+        });
+        $('.datetimepicker').delegate('.minute','click',function(){
+            $('.datetimepicker').css('display','none')
+        });
+
+        $('#input-tags3').selectize({
+            plugins: ['remove_button'],
+            maxItems: null,
+            valueField: 'title',
+            labelField: 'title',
+            searchField: 'title',
+            options: [
+                {title: '内务管理'},
+                {title: '执法勤务'},
+                {title: '枪支管理'},
+                {title: '车辆管理'},
+                {title: '值班备勤'},
+                {title: '服务群众'},
+                {title: '五条禁令'},
+                {title: '保密规定'},
+                {title: '八项规定'},
+                {title: '其他'}                
+            ],
+            create: false
+            
+        });
+      
+	    $('#photos').ssi_uploader({
+            url:'#',
+            dropZone: false ,
+            maxFileSize: 10000000,
+            allowed:['jpg', 'jpeg', 'png', 'bmp', 'gif']
+        });
+        
+        var keys = [];
+        
+        $("#submit").click(function(){
+
+            var imgs = keys["imgSrc"] = [];
+
+            $('input,select,textarea').each(function(){
+
+                 var name = $(this).attr('name');
+                 var _val = $(this).val();
+                
+                if($(this).hasClass('imgsInput')){
+
+                    _val = $(this).siblings('img').attr('src');
+                    imgs.push(_val) ;
+
+                }else if(name != undefined){
+
+                    keys[name] = _val;
+                }
+                
+            });
+            console.log(keys)
+        });
+        $('#draw').click(function(){
+            $("#drawBox").addClass('show');
+            $('body').css('overflow','hidden');
+        });
+        $('#drawBox').delegate('#saveBtn','click',function(){
+            $("#drawBox").removeClass('show');
+            $('body').css('overflow','auto');
+        });
+        $('#signature').delegate('#delDraw','click',function(){
+             clearCanvas();
+             $('#signature').empty();
+        })
+        
+        
+    })
+    $(document).on('ready', function() {
+        if ($('.js-signature').length) {
+            $('.js-signature').jqSignature();
+        }
+    });
+
+    function clearCanvas() {
+        $('.js-signature').eq(0).jqSignature('clearCanvas');
+        $('#saveBtn').attr('disabled', true);
+    }
+
+    function saveSignature() {
+        $('#signature').empty();
+        var dataUrl = $('.js-signature').eq(0).jqSignature('getDataURL');
+
+        var _html = '<div id="drawImg" class="ssi-uploadBox ssi-previewBox ssi-uploadNoDropZone">'
+                    + '   <img src='+dataUrl+' width="100%"/>'
+                    + '   <button id="delDraw" class=" ssi-button error ssi-removeBtn"><span class="trash10 trash"></span></button>'
+                    + '</div>';
+        $('#signature').append(_html);
+    }
+
+    $('.js-signature').eq(0).on('jq.signature.changed', function() {
+        $('#saveBtn').attr('disabled', false);
+    });
+</script>
+
+
+
+</body>
+</html>

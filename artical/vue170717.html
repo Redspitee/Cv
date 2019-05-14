@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,MongoDb前端,express框架,nodejs">
+    <meta name="description" content="RedSpite express+mongoDB建立与前端通信的数据库 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » express+mongoDB建立与前端通信的数据库</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!-- xiaoyuezhang.com Baidu tongji analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        pre {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+
+        <div class=" container">
+            <div id="top">
+                <img src="/image/top.png" alt="回到顶部">
+            </div>
+            <div class="header-box">
+                <img src="/image/header.jpg" alt="我的头像">
+            </div>
+            <div class="center">
+                <p class="myid">RedSpite</p>
+            </div>
+            <div class="my-sort center">
+                <a href="/index.html">简历</a>
+                <a href="/drip.html">点滴</a>
+                <a href="/message.html">留言</a>
+            </div>
+            <div id="artical-detail">
+                <h4>express+mongoDB建立与前端通信的数据库</h4>
+                <p> 学习过程中所记录的笔记，按着步骤来可以自己搭建一个能通信的服务器，遇到不懂的地方问度娘。 在
+                    <a href="http://git.oschina.net/redspite/vue-mongoPro" target="_black">我的码云（点击查看）</a> 和
+                    <a href="https://github.com/Redspitee/vue-mongoPro" target="_black">我的github（点击查看）</a>上有搭建完成后的代码，前端用的Vue框架。 不完善的地方还在修改ing~</p>
+                <p><strong>本项目基于Vue框架  <a href="http://git.oschina.net/redspite/vue-mongoPro" target="_black"> 已搭建好的源码在我的码云可以查看 </a></strong></p>
+                <p>
+                    <strong>1.生成一个vue</strong>
+                </p>
+                <pre class="codebox">
+    vue init webpack demoFolder
+                    </pre>
+                <p>
+                    <strong>2.express 框架</strong>
+                </p>
+                <p>创建服务器文件夹 http://www.expressjs.com.cn/4x/api.html</p>
+                <pre class="codebox">
+    cnpm install express-generator  //安装express
+    express server    
+                    </pre>
+                <p>
+                    <strong>3.安装依赖</strong>
+                </p>
+                <pre class="codebox">
+    cd server
+    cnpm install
+                    </pre>
+
+                <p>
+                    <strong>4.express安装默认是使用 jade 模板语言，修改成 html 的方法：</strong>
+                </p>
+                <pre class="codebox">
+    安装 ejs  
+    cnpm install ejs --save
+
+    server > app.js 内引入 ejs 模块
+    var ejs = require('ejs');
+    
+    server > app.js 内设置语言类型 
+    app.engine('.html',ejs.__express);
+    app.set('view engine','html');
+
+    //新建路由
+    var egs= require('path/egs');
+    app.use('/egs',egs);
+                    </pre>
+
+                <p>
+                    <strong>5.pm2插件启动服务器</strong>
+                </p>
+                <pre class="codebox">
+    cnpm install pm2 -g
+    启动：pm2 start server/bin/www
+    关闭：pm2 stop name(all)
+                    </pre>
+
+                <p>
+                    <strong>6.MongoDB数据库安装</strong>
+                </p>
+                <pre class="codebox">
+    mongo 数据库安装 http://www.runoob.com/mongodb/mongodb-window-install.html
+    mongoose 安装依赖 http://www.nodeclass.com/api/mongoose.html 
+    cnpm install mongoose --save
+                    </pre>
+
+                <p>
+                    <strong>7.开启数据库</strong>
+                </p>
+                <pre class="codebox">
+    mongo
+                    </pre>
+
+                <p>
+                    <strong>8.mongo数据库操作</strong>
+                </p>
+                <pre class="codebox">
+    数据库           database
+    集合             collection  表
+    记录行文档       document
+    域 键值对        field
+    索引             index
+    主键 生成 _id    primary key
+                    </pre>
+
+                <p>
+                    <strong>9.操作</strong>
+                </p>
+                <pre class="codebox">
+    1.创建数据库并插入
+        db.demo.insert({  
+            "userId":101,
+            "name":" jack",
+            "class":{ num:30 } 
+        })
+    2.删除数据库
+        db.dropDatabase()
+    3.删除集合
+        db.user.drop()
+    4.查找集合  格式美化
+        db.demo.find().pretty()
+    5.查找第一条数据
+        db.demo.findOne()
+    6.查找条件
+    大于
+        db.demo.find({age:{$gt:20}})
+    大于等于
+        db.demo.find({age:{$gte:20}})
+    小于
+        db.demo.find({age:{$lt:20}})
+    小于等于
+        db.demo.find({age:{$lte:20}})
+    等于
+        db.demo.find({age:{$eq:20}})
+
+    7.数据更新   显示查找条件，然后$set修改 (子文档用class.num)
+        db.demo.update({“name”:"jack"},{$set:{"class.num":25}
+    8.数据删除
+        db.demo.remove({“name”:"zxy"})
+                    </pre>
+
+                <p>
+                    <strong>10. server > model > egs.js</strong>
+                </p>
+                <pre class="codebox">
+    var mongoose = require('mongoose');
+    var Schema = mongoose.Schema;
+
+    //With Mongoose, everything is derived from a Schema.
+    //模板定义
+    var egSchema = new Schema({
+    "name":String
+    });
+    //以下输出会自动在数据库查找 egs 数据表
+    module.exports = mongoose.model('Eg',egSchema)
+                    </pre>
+
+                <p>
+                    <strong>11. server > router > egs.js</strong>
+                </p>
+                <pre class="codebox">
+    var express = require('express');
+    var router = express.Router();
+    var mongoose = requier('mongoose');
+
+    //获取到数据表egs的数据
+    var Egs= require('../models/egs');
+
+    //链接mongodb数据库
+    mongoose.connect('mongodb://127.0.0.1:27017/mydemo');
+
+    //返回数据
+    router.get('/',(req,res,next)=>{
+    Egs.find({},(err, doc) => {
+        if (err) {  
+                res.json({
+                    status: 1,
+                    msg: err.msg
+                })
+            } else {
+                res.json({
+                    status: 0,
+                    msg: "",
+                    result: {
+                        count: doc.length,
+                        list: doc
+                    }
+                })
+            }
+        })
+    })
+    module.exports = router;
+                    </pre>
+
+                <p>
+                    <strong>12.跨域</strong>
+                </p>
+                <p>target是跨域的接口的链接地址</p>
+                <pre class="codebox">
+    //代理跨域 config > index.js
+    proxyTable: {
+        '/egs': {
+            target: 'http://localhost:3000'
+        }
+    },
+                </pre>
+
+                <p>
+                    <strong>13.页面调用服务器接口 (vue中)</strong>
+                </p>
+
+                <pre class="codebox">
+    axios.get('/egs',{
+        param:params
+    }).then(res=>{
+        //获取到数据
+    }).catch(err=>{
+        //错误
+    })
+                    </pre>
+            </div>
+            <p class="artical-detail-date">2017.07.27</p>
+            <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+        </div>
+    </div>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/syntaxy.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".header-box").addClass("fadein");
+            $("#artical-detail p").append("<br/><br/>");
+        });
+    </script>
+    <script>
+        (function() {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            } else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</body>
+
+</html>

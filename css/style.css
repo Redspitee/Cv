@@ -1,0 +1,745 @@
+/*第一篇*/
+
+.trian{
+    width: 100px;
+    height: 100px;
+    margin: 2em auto;
+}
+#text{
+    transition: 0.5s;
+}
+.code{
+    max-width: 1000px;
+    margin: 1em auto 2em;
+}
+.code li{
+    display: none;
+}
+#choose{
+    text-align: center;
+}
+#choose li{
+    width: auto;
+    display: inline-block;
+    font-size: 1em;
+    height: 2em;
+    line-height: 2em;
+    padding: 0 0.8em;
+    background: #ddd;
+    color: #948c79;
+    cursor: pointer;
+    margin: 0.2em;
+}
+#choose li:hover,#choose li.current{
+    background: #dbe9e7;
+    color: #222;
+}
+.stx-wrap .stx-line-wrap .stx-line-code{
+    font-size: 1em;
+}
+.codebox{
+}
+.code{
+
+}
+#text.up{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #ddd;
+}
+#text.down{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid #ddd;
+}
+#text.left{
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ddd;
+}
+#text.right{
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-left: 100px solid #ddd;
+}
+#text.tl{
+    width: 0;
+    height: 0;
+    border-top: 100px solid #ddd;
+    border-right: 100px solid transparent;
+}
+#text.tr{
+    width: 0;
+    height: 0;
+    border-top: 100px solid #ddd;
+    border-left: 100px solid transparent;
+}
+#text.bl{
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid #ddd;
+    border-right: 100px solid transparent;
+}
+#text.br{
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid #ddd;
+    border-left: 100px solid transparent;
+}
+.return {
+    width: 5em;
+    background: #000;
+    color: #fff;
+    font-size: 1em;
+    line-height: 3em;
+    cursor: pointer;
+    box-shadow: 0 0 2em #ddd;
+    border: none;
+    float: left;
+    margin: 3em;
+}
+.intro{
+    font-size: 1.1em;
+    line-height: 1.4em;
+    padding: 0 2em;
+}
+/*第二篇*/
+.banner_div{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    position: relative;
+}
+.banner_img{
+    width:400%;
+    height:auto;
+
+}
+.banner_img li{
+    width: 25%;
+    height:auto;
+    float: left;
+}
+.banner_img li img{
+    width:auto;
+    height:auto;
+    max-width: 100%;
+    max-height:100%;
+}
+.banner_num{
+    position: absolute;
+    bottom: 1vh;
+    width: 100%;
+    text-align: center;
+}
+.banner_num li{
+    float: none;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin:0 5px;
+    border-radius: 50%;
+    border: 2px solid #d9edf7;
+    background: #fff;
+    box-sizing: border-box;
+    cursor:pointer;
+}
+.banner_num li.active{
+    background: #75aaa2;
+    border: 2px solid #fff;
+}
+/*渐变色*/
+#gradients #text{
+    width: 100%;
+    height:200px;
+    margin: 1em 0;
+}
+#text.ttb{
+    background: -webkit-linear-gradient(#fff, #75aaa2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff, #75aaa2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff, #75aaa2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff, #75aaa2); /* 标准的语法（必须放在最后） */
+}
+#text.opac{
+    background: -webkit-linear-gradient(rgba(256,256,256,0), #75aaa2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgba(256,256,256,0), #75aaa2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgba(256,256,256,0), #75aaa2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgba(256,256,256,0), #75aaa2); /* 标准的语法（必须放在最后） */
+}
+#text.btt{
+    background: -webkit-linear-gradient(bottom,#fff, #75aaa2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom,#fff, #75aaa2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom,#fff, #75aaa2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top,#fff, #75aaa2); /* 标准的语法（必须放在最后） */
+}
+#text.ltr{
+    background: -webkit-linear-gradient(left,#fff,#75aaa2);
+    background: -moz-linear-gradient(left,#fff,#75aaa2);
+    background: -o-linear-gradient(left,#fff,#75aaa2);
+    background: linear-gradient(to right,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+}
+#text.rtl{
+    background: -webkit-linear-gradient(right,#fff,#75aaa2);
+    background: -o-linear-gradient(right,#fff,#75aaa2);
+    background: -moz-linear-gradient(right,#fff,#75aaa2);
+    background: linear-gradient(to left,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+}
+#text.dj{
+    background: -webkit-linear-gradient(top left,#fff,#75aaa2);
+    background: -o-linear-gradient(top left,#fff,#75aaa2);
+    background: -moz-linear-gradient(top left,#fff,#75aaa2);
+    background: linear-gradient(to bottom right,#fff,#75aaa2);/*标准写法（必须放在最后）*/
+}
+#text.colors{
+    background: -webkit-linear-gradient(#fff, #a0d6a6, #75aaa2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fff,#a0d6a6, #75aaa2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fff,#a0d6a6, #75aaa2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fff,#a0d6a6, #75aaa2); /* 标准的语法（必须放在最后） */
+}
+#text.repeat{
+    background: -webkit-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+    background: -o-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+    background: -moz-repeating-linear-gradient(#fff 10%,#75aaa2 20%);
+    background: repeating-linear-gradient(#fff 10%,#75aaa2 20%);/* 标准的语法（必须放在最后） */
+}
+.stx-scroller{
+    min-height: 0!important;
+}
+.flow{
+    margin-top: 3em;
+}
+#photobox{
+    margin: 1em 0;
+}
+#photobox >div{
+    width: 30%;
+    padding-bottom: 30%;
+    height: 0;
+    overflow: hidden;
+}
+#photobox >div img{
+    min-width:100%;
+}
+/*
+    编辑器
+*/
+#mybjq{
+    margin: 2em 0 1em;
+}
+#mybjq + p{
+    margin-bottom: 1em;
+}
+#alert{
+    padding: 5px 20px;
+    float: right;
+    background: #f7f3ee;
+    color: #9e886c;
+    border-radius: 5px;
+}
+
+/*
+    手机端轮播
+*/
+#bannerm{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+#bannerm ul{
+    width: 400%;
+    height: 100%;
+    overflow: hidden;
+}
+#bannerm li{
+    position: relative;
+    width: 25%;
+    height: 0;
+    padding-bottom: 7.5%;
+    overflow: hidden;
+    float: left;
+}
+#bannerm li img{
+    width: 100%;
+}
+#numberI{
+    display: block;
+    width: 100%;
+}
+/*
+    grid
+*/
+
+.grid-box{
+    position: relative;
+    width: 280px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 10px solid #dee5e1;
+    margin: 0 auto;
+}
+
+.pic1, .pic2{
+    font-size: 0;
+    box-sizing: content-box;
+    width: 260px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.pic1 li{
+    width: 50%;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+
+.pic1 li > img{
+    position: absolute;
+}
+ .pic1 li > img,.pic1:hover li > img,.pic2 , .grid-box:hover .pic2{
+    transition: all 0.5s ease;
+}
+.pic1 li:nth-child(1) img{
+    left:0;
+    top:0;
+}
+.pic1 li:nth-child(2) img{
+    left: -130px;
+    top: 0;
+}
+.pic1 li:nth-child(3) img{
+    left:0;
+    top: -100px;
+}
+.pic1 li:nth-child(4) img{
+    left: -130px;
+    top: -100px;
+}
+.pic2{
+    transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    background: url("../image/about2.jpg") no-repeat center;
+    background-size: cover;
+    z-index: -1;
+}
+.grid-box:hover .pic2{
+    transform: scale(1);
+    -o-transform: scale(1);
+    -moz-transform: scale(1);
+    display: block;
+}
+.pic1:hover li:nth-child(1) img{
+    /*向下滑*/
+    top:100px;
+}
+.pic1:hover li:nth-child(2) img{
+    /*向左滑*/
+    left: -260px;
+}
+.pic1:hover li:nth-child(3) img{
+    /*向左滑*/
+    left: 130px;
+}
+.pic1:hover li:nth-child(4) img{
+    /*向上滑*/
+    top: -260px;
+}
+/*
+    3d轮播
+*/
+#fp-box，.fp-img-box li, .fp-img-box{
+    width: 100%;
+    padding-bottom: 30%;
+    height: 0;
+}
+#fp-box{
+    position: relative;
+    overflow: hidden;
+}
+.fp-img-box{
+    margin-bottom: 0;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.fp-img-box li{
+    position: absolute;
+    top:0;
+    left: 0;
+    visibility: hidden;
+}
+.fp-img-box li img{
+    width: 100%;
+}
+
+.fp-num-box{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+.fp-num-box li{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #75aaa2;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.fp-num-box li.active{
+    background: #75aaa2;
+    border: 2px solid #fff;
+}
+.fp-img-box li.show{
+    visibility: visible;
+    z-index: 10;
+}
+.fp-img-box li.hides{
+    z-index: 0;
+}
+.fp-img-box li.show.right{
+    -webkit-animation: showright 1s;
+    animation: showright 1s;
+}
+.fp-img-box li.hides.right{
+    -webkit-animation: hideright 1s ;
+    animation: hideright 1s ;
+}
+.fp-img-box li.show.left{
+    -webkit-animation: showleft 1s ;
+    animation: showleft 1s ;
+}
+.fp-img-box li.hides.left{
+    -webkit-animation: hideleft 1s ;
+    animation: hideleft 1s ;
+}
+@-webkit-keyframes showright {
+    0%{ -webkit-transform: translateZ(-200px)}
+    50%{ -webkit-transform: translate(40%,0) scale(0.8) rotateY(-30deg)}
+    100%{ -webkit-transform: translateZ(0px)}
+}
+@keyframes showright {
+    0%{ transform: translateZ(-200px)}
+    50%{ transform: translate(40%,0) scale(0.8) rotateY(-30deg)}
+    100%{ transform: translateZ(0px)}
+}
+@-webkit-keyframes hideright {
+    0%{ -webkit-transform: translateZ(0px);visibility: visible;}
+    50%{ -webkit-transform: translate(-40%, 0) scale(0.8) rotateY(30deg)}
+    100%{ -webkit-transform: translateZ(-200px);visibility: hidden;}
+}
+@keyframes hideright {
+    0%{ transform: translateZ(0px);visibility: visible;}
+    50%{ transform: translate(-40% ,0) scale(0.8) rotateY(30deg)}
+    100%{ transform: translateZ(-200px);visibility: hidden}
+}
+@-webkit-keyframes showleft {
+    0%{ -webkit-transform: translateZ(-200px)}
+    50%{ -webkit-transform: translate(40%, 0) scale(0.8) rotateY(-30deg)}
+    100%{ -webkit-transform: translateZ(0px)}
+}
+@keyframes showleft {
+    0%{ transform: translateZ(-200px)}
+    50%{ transform: translate(40% ,0) scale(0.8) rotateY(-30deg)}
+    100%{ transform: translateZ(0px)}
+}
+@-webkit-keyframes hideleft {
+    0%{ -webkit-transform: translateZ(0px);visibility: visible;}
+    50%{ -webkit-transform: translate(-40%, 0) scale(0.8) rotateY(30deg)}
+    100%{ -webkit-transform: translateZ(-200px);visibility: hidden;}
+}
+@keyframes hideleft  {
+    0%{ transform: translateZ(0px);visibility: visible;}
+    50%{ transform: translate(-40% ,0) scale(0.8) rotateY(30deg)}
+    100%{ transform: translateZ(-200px);visibility: hidden}
+}
+
+
+/*
+    star
+*/
+.star_score{
+    text-align: center;
+}
+.star_score span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../image/star-off.png) no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+.star_score span.active, .star_score span.select{
+    background: url(../image/star-on.png) no-repeat;
+    background-size: 100%;
+}
+
+/*
+    animate
+*/
+/*
+    1
+*/
+.anima-box, .anima-box ul{
+    overflow: hidden;
+}
+.anima-box li{
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.anima-box li>div{
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+.trans{
+    transition: all 0.3s ;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s ;
+    -o-transition: all 0.3s ;
+}
+.trans-delay{
+    transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s; /* Firefox 4 */
+    -webkit-transition-delay: 0.1s; /* Safari 和 Chrome */
+    -o-transition-delay: 0.1s; /* Opera */
+}
+.anima-box li img{
+    min-width: 100%;
+    min-height: 100%;
+}
+.anima-box li.marl img{
+    width: 120%;
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
+}
+.anima-box li.marl:hover img{
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+    margin-left: -10%;
+}
+.anima-box li .show{
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+    z-index: 100;
+}
+.anima-box li .show p,.anima-box li .show h2{
+    transform: translate3d(0,20px,0);
+    -webkit-transform: translate3d(0,20px,0);
+    margin-bottom: 0;
+}
+.anima-box li .show p{
+    opacity: 0;
+}
+.anima-box li:hover .show p,.anima-box li:hover .show h2{
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
+.anima-box li:hover .show p{
+    opacity: 1;
+}
+/*
+    2
+*/
+.gradli > div .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+    background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+    -webkit-transform: translate3d(0,50%,0);
+    transform: translate3d(0,50%,0);
+    opacity: 0;
+}
+.anima-box li.gradli  .show , .anima-box li.bd-scale .show, .anima-box .widthl .show{
+    width: 100%;
+    top: 20%;
+    left:0;
+    text-align: center;
+}
+.anima-box li.gradli p.slidep {
+    text-align: center;
+    margin-top: 20%;
+}
+.anima-box li.gradli:hover img{
+    margin-left: 0;
+}
+.anima-box li.gradli:hover > div .cover{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    opacity: 1;
+}
+/*
+    3
+*/
+.bd-scale::before,.bd-scale::after{
+    position: absolute;
+    content: "";
+    opacity: 0;
+    z-index: 100;
+    transition: all 0.3s ;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s ;
+    -o-transition: all 0.3s ;
+}
+.anima-box li.scale img{
+    -webkit-filter:brightness(1);
+    filter:brightness(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.anima-box li.scale:hover img{
+    -webkit-filter:brightness(0.7);
+    filter:brightness(0.7);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.bd-scale::before{
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid  #fff;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.bd-scale::after{
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid  #fff;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+/*
+    4
+*/
+.bd-scale.scale1::before{
+    top: 50px;
+    bottom: 50px;
+    -webkit-transform: scale(0,1);
+    transform: scale(0,1);
+}
+.bd-scale.scale1::after{
+    left: 50px;
+    right: 50px;
+    -webkit-transform: scale(1,0);
+    transform: scale(1,0);
+}
+.bd-scale:hover::after, .bd-scale:hover::before{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+.anima-box li.bd-scale .show p{
+    text-align: center;
+}
+.anima-box li.bd-scale .show p{
+    margin-top: 30px;
+}
+.anima-box li.bd-scale:hover .show h2{
+    transform: translate3d(0,30px,0);
+    -webkit-transform: translate3d(0,30px,0);
+    margin-bottom: 0;
+}
+.anima-box li.bd-scale:hover img{
+    margin-left: 0;
+}
+/*
+    5
+*/
+.anima-box .widthl::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background: #fff;
+    z-index: 100;
+    bottom:10%;
+    transition: all 0.3s ;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s ;
+    -o-transition: all 0.3s ;
+}
+.anima-box .widthl img{
+}
+.anima-box .widthl p.slidep{
+    -webkit-transform: translate(100%,0);
+    transform: translate(100%,0);
+    text-align: center;
+    margin-top: 20%;
+}
+.anima-box .widthl:hover p.slidep{
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+}
+.anima-box .widthl:hover::before{
+    width: 100%;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.anima-box .widthl:hover img{
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
+    margin-left: -10%;
+}
+
+/*
+    6
+*/
+.anima-box .imgup .pdiv{
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: -20%;
+    background: #0c4b62;
+    color: white;
+}
+.anima-box .imgup:hover .pdiv{
+    bottom: 0;
+}
+.anima-box .imgup .pdiv h3{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 1em 0;
+}
+.anima-box .imgup:hover img{
+    margin-top: -20%;
+}
+.anima-box .imgup:hover .show{
+    bottom: 40%;
+}
+
+
+
+
+

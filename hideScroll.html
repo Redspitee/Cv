@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,web前端,滚动条隐藏,去掉滚动条,滚动条美化">
+    <meta name="description" content="RedSpite 去掉丑丑的滚动条div仍然能滚动">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 去掉丑丑的滚动条div仍然能滚动</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>去掉丑丑的滚动条div仍然能滚动</h4>
+            <p>工作的时候容易遇到这种情况：页面某一区域需要滚动，但并不想浏览器自带的滚动条出现</p>
+            <p>而各个浏览器的滚动条各不相同，宽度、颜色都不统一。为了美观，优化这些风格不一的滚动条
+                也是前端工作中必须要做的事~</p>
+            <p>本次方法的主要思路就是：<strong>外部容器固定宽高并超出隐藏，里面的容器如果高度超出，则滚动，宽度比外部容器宽一个滚动条的大小</strong></p>
+            <p><strong>1.</strong> 写一个容器1 宽度是你需要展示的宽度,超出隐藏</p>
+            <p><strong>2.</strong> 在1的里面写一个宽度略微大于1的容器2</p>
+            <p><strong>3.</strong> 容器2的宽度 = 容器1宽度+滚动条宽度</p>
+            <h5>Html:</h5>
+            <pre class="codebox" data-type="blank">
+                 <div class="div1">
+                     <div class="div2"></div>
+                 </div>
+            </pre>
+            <h5>Css:</h5>
+            <pre class="codebox" data-type="blank">
+                 .div1{
+                    width: 500px;
+                    height: 200px;
+                    margin: 0 auto;
+                    overflow: hidden;
+                 }
+                 .div2{
+                    height: 100%;
+                 }
+            </pre>
+            <h5>JS:</h5>
+            <pre class="codebox" data-type="blank">
+                $(function(){
+                    var div = $(".div2")[0]; //获取div2
+                    var scrollbarWidth = div.offsetWidth - div.scrollWidth; //div2的滚动条 = div2网页可见区域宽 - 获取div2的滚动宽度
+                    var div1 = $(".div1").width(); //获取div1的宽度
+                    $(".div2").width(div1 + scrollbarWidth); //div2宽度 = div1宽度+滚动条宽度
+                });
+            </pre>
+        </div>
+        <div class="flow">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame" class="fl half"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2110329"></script>
+            <!-- UY END -->
+            <div class="half fr">
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.07.30</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+</html>

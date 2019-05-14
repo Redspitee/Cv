@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,css3动画,动画效果,鼠标悬停">
+    <meta name="description" content=" 各种常见的鼠标悬停css3动画效果 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 各种常见的鼠标悬停css3动画效果</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="index.html">简历</a>
+            <a href="drip.html">点滴</a>
+            <a href="message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>各种常见的鼠标悬停css3动画效果</h4>
+            <p>平时需要用到的鼠标悬停效果，基本上都是css3的结合。代码就不放了，直接右键看即可。</p>
+            <div class="anima-box">
+                <ul>
+                    <li class="col-md-4 col-sm-6 marl">
+                        <div>
+                            <img src="image/s2.jpg" alt="配图">
+                            <div class="show">
+                                <h2>Hello,<strong>World</strong></h2>
+                                <p class="slidep">This Is What U Want!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-md-4 col-sm-6 gradli">
+                       <div>
+                           <img src="image/s3.jpg" alt="配图">
+                           <div class="show">
+                               <h2>Hello,<strong>World</strong></h2>
+                               <p class="slidep">This Is What U Want!</p>
+                           </div>
+                           <div class="cover"></div>
+                       </div>
+                    </li>
+                    <li class="col-md-4 col-sm-6 bd-scale scale">
+                        <div>
+                            <img src="image/s4.jpg" alt="配图">
+                            <div class="show">
+                                <h2>Hello,<strong>World</strong></h2>
+                                <p class="slidep">This Is What U Want!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-md-4 col-sm-6 bd-scale scale1 scale">
+                        <div>
+                            <img src="image/s5.jpg" alt="配图">
+                            <div class="show">
+                                <h2>Hello,<strong>World</strong></h2>
+                                <p class="slidep">This Is What U Want!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-md-4 col-sm-6 widthl">
+                        <div>
+                            <img src="image/s8.jpg" alt="配图">
+                            <div class="show">
+                                <h2>Hello,<strong>World</strong></h2>
+                                <p class="slidep">This Is What U Want!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-md-4 col-sm-6 imgup">
+                        <div>
+                            <img src="image/s12.jpg" alt="配图">
+                            <div class="show trans">
+                                <h1>Hello,<strong>World</strong></h1>
+                            </div>
+                            <div class="pdiv trans">
+                                <h3>More msgs show here</h3>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="artical-detail-date">2016.10.15</p>
+        <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/syntaxy.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail > p").append("<br/><br/>");
+
+        $(".anima-box li").each(function () {
+            $(this).find("img,.show p,.show h2").addClass("trans");
+        });
+        var imgHei = $(".anima-box li>div").width();
+        $(".anima-box li>div").css("height",imgHei*0.8);
+    });
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+
+</html>

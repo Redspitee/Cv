@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>现场监督登记系统</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
+
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <style>
+    body{position: relative;width: 100vw;height: 100vh;}
+    .am-offcanvas-content{ padding: 15px 5px; color: white}
+    .am-form-group p{ margin: 0; font-size: 16px;line-height: 32px;}
+    .am-form-group p.am-u-sm-4{ padding-right: 0}
+    .am-form-group p.am-u-sm-8{ padding-left: 0;}
+    .letter-2{ letter-spacing: 23px;}
+    .letter-1{ letter-spacing: 7px;}
+    .uploadBox{ text-align: center;position: absolute;width:100%;top: 40%; transform:translateY(-50%) ;}
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<!-- 页面内容 -->
+<h3 style="margin: 1rem;text-align: center; ">数据上传</h3>
+<div class="uploadBox">
+    <h4>提 示</h4>
+    <p>数据上传后将不能修改</p>
+    <button type="submit" class="am-btn am-btn-primary" id="submit">上 传</button>
+</div>
+
+<button id ="alert" hidden data-am-modal="{target: '#my-alert'}"></button>
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">数据上传</div>
+    <div class="am-modal-bd">
+       上传成功
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn">确 定</span>
+    </div>
+  </div>
+</div>
+
+<!--菜单-->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="background: #fff; border-top: 1px solid #ddd;">
+        <li>
+          <a href="index.html">
+              <span class="am-icon-th-list"></span>
+              <span class="am-navbar-label">督察列表</span>
+          </a>
+        </li>
+        <li>
+          <a href="addNew.html">
+              <span class="am-icon-plus-square"></span>
+              <span class="am-navbar-label">新建录入</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="current">
+              <span class="am-icon-wifi"></span>
+              <span class="am-navbar-label">数据上传</span>
+          </a>
+        </li>
+        <li>
+          <a href="setting.html">
+              <span class="am-icon-cog"></span>
+              <span class="am-navbar-label">系统设置</span>
+          </a>
+        </li>
+    </ul>
+</div>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script>    
+    $(function(){
+         $("#submit").click(function(){
+            $.AMUI.progress.start();
+            setTimeout(function(){
+                $.AMUI.progress.done();
+                $('#alert').click();
+            },3000)
+        });
+    });
+</script>
+
+</body>
+</html>

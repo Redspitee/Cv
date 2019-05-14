@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="张小月,Redspite,google地图,drawingManager">
+    <meta name="description" content=" 文章详情">
+    <meta name="author" content="张小月,Redspite">
+    <title>RedSpite » 谷歌地图初触电</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntaxy.light.min.css">
+    <link rel="stylesheet" href="/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!-- xiaoyuezhang.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="content">
+    <div class=" container">
+        <div id="top">
+            <img src="/image/top.png" alt="回到顶部">
+        </div>
+        <div class="header-box">
+            <img src="/image/header.jpg" alt="我的头像">
+        </div>
+        <div class="center">
+            <p class="myid">RedSpite</p>
+        </div>
+        <div class="my-sort center">
+            <a href="/index.html">简历</a>
+            <a href="/drip.html">点滴</a>
+            <a href="/message.html">留言</a>
+        </div>
+        <div id="artical-detail">
+            <h4>谷歌地图初触电</h4>
+            <p>
+                最近的项目里面用到了谷歌地图，以前开发过百度地图，但是都涉足很浅很浅，虽然这次也只用到了<span class="cspan">drawingManager</span>下面几个画图组件。
+                氮素！第一次写了几百行的代码实现出了功能，这样充实的学习过程很令人满足讷。
+            </p>
+            <p>
+                这次把遇到的几个难点写下来，以后也能温故知新。
+            </p>
+            <p><strong>marker 与 infoWindow</strong></p>
+            <p>首先定义一个地图</p>
+            <div class="code">
+                <pre class="codebox">
+                    var point = {"lat": 20,"lng": 102};
+                    map = new google.maps.Map(document.getElementById('map-canvas'), {
+                        zoom: 7,                                    //缩放级别
+                        center: point,                              //中心点                  
+                        mapTypeId: google.maps.MapTypeId.ROADMAP    //地图类型
+                    });
+                </pre>
+            </div>
+            <p>创建一个markder标记</p>
+            <div class="code">
+                <pre class="codebox">
+                    var myLatlng = new google.maps.LatLng(data.lat, data.lng);  //定义一个marker的经纬度坐标
+                    
+                    var marker = new google.maps.Marker({                       //创建marker 
+                        position: myLatlng,  
+                        map: map
+                    });  
+                    marker.setMap(map);
+                </pre>
+            </div>
+            <p>给这个marker加一个点击出现的infoWindow</p>
+            <div class="code">
+                <pre class="codebox">
+                    google.maps.event.addListener(marker, "click", function (e) {  
+                        var html= '这是一个infoWindow';
+                        infoWindow.setContent(_html);  
+                        infoWindow.open(map, marker); 
+                    });
+                </pre>
+            </div>
+            <p><strong>第一个难点：多个marker分别对应不同内容的infoWindow怎么写呢？</strong></p>
+            <p>答案是如下，假设有给一个markers数组，里面包含了每个marker的经纬度以及它对应的信息。这里用到了一个自运行函数。</p>
+            <div class="code">
+                <pre class="codebox">
+                    for (var i in markers) {  
+                        //data是当前marker的信息对象
+                        var data = markers[i];                                                            
+                        var myLatlng = new google.maps.LatLng(data.lat, data.lng);  
+                        var marker = new google.maps.Marker({  
+                            position: myLatlng,  
+                            map: map
+                        });  
+                        marker.setMap(map);
+                        
+                        //marker添加点击事件  
+                        (function (marker, data) {  
+                            google.maps.event.addListener(marker, "click", function (e) {  
+                                var _html = '<div>'+ data.address +" "+ data.time  +" "+ data.msg +'</div>';
+                                infoWindow.setContent(_html);  
+                                infoWindow.open(map, marker); 
+                            }); 
+                        })(marker, data);  
+                    }
+                </pre>
+            </div>
+            <p><strong>第二个难点：怎样获得当前overlay的各种坐标呢？</strong></p>
+            <p>答案是需要对overlay监听，<span class="cspan">drawingManager</span>提供了几个与marker,circle,polygon...等相对应的完成事件监听。
+                其中<span class="cspan">overlaycomplete</span>可监听所有类型的完成事件。
+            </p>
+            <div class="code">
+                <pre class="codebox">
+                    function setOverlay(obj){
+                        //obj可得到当前操作对象
+                        var obj = obj.overlay;      //obj是需要操作的对象
+                        var type = obj.type;        //type可获取当前操作对象的类型
+
+                        //对marker来说
+                        var lat = obj.position.lat();   //获得marker的当前经度坐标
+                        var lng = obj.position.lng();   //获取marker的当前纬度坐标
+                    }
+                    google.maps.event.addListener(drawingManager, 'overlaycomplete', setOverlay);
+                </pre>
+            </div>
+            <p><strong>第三个难点：怎样修改当前overlay的各种坐标呢？</strong></p>
+            <p>如果需要手动修改当前坐标，以marker为例</p>
+            <div class="code">
+                <pre class="codebox">
+
+                     //将修改的 lat,lng重新传入obj即可
+                     var myLatlng = new google.maps.LatLng(lat,lng); 
+                     obj.setPosition(myLatlng);
+                </pre>
+            </div>
+            <p>对于不同overlay有不同的调用方法，只要对当前对象调用对应方法就能设置该对象的不同参数了。</p>
+            <p><strong>mark一个挺好的API参考网站</strong><a href="http://www.apihome.cn/api/googlemap/" target="_black" style="font-size: 16px;">API之家</a>，
+                这里面可以找到很全的监听事件以及调用方法。</p>
+
+            <p class="artical-detail-date">2016.12.15</p>
+            <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/syntaxy.min.js"></script>
+<script src="/js/myjs.js"></script>
+<script>   
+
+
+    $(document).ready(function () {
+        $(".header-box").addClass("fadein");
+        $("#artical-detail p").append("<br/><br/>");
+    });
+</script>
+</html>
